@@ -1,4 +1,5 @@
 [Apache License, Version 2.0]
+
 Copyright 2012 Podevor
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,6 +16,7 @@ limitations under the License.
 
 
 author:Podevor
+
 Home: http://www.zhucongqi.cn
 
 cocos2d-iphone-demos
