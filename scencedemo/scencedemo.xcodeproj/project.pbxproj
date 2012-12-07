@@ -133,6 +133,7 @@
 		C93AC8421671E38A004C11CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C93AC8411671E38A004C11CB /* AppDelegate.m */; };
 		C93AC8451671E38A004C11CB /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C93AC8441671E38A004C11CB /* HelloWorldLayer.m */; };
 		C93AC8481671E38A004C11CB /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C93AC8471671E38A004C11CB /* IntroLayer.m */; };
+		C93AC84F1671E408004C11CB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C93AC84E1671E407004C11CB /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -398,6 +399,7 @@
 		C93AC8441671E38A004C11CB /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		C93AC8461671E38A004C11CB /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		C93AC8471671E38A004C11CB /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		C93AC84E1671E407004C11CB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = scencedemo/README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -423,6 +425,7 @@
 		C93AC6A71671E387004C11CB = {
 			isa = PBXGroup;
 			children = (
+				C93AC84E1671E407004C11CB /* README.md */,
 				C93AC6C81671E387004C11CB /* scencedemo */,
 				C93AC6B51671E387004C11CB /* Frameworks */,
 				C93AC6B31671E387004C11CB /* Products */,
@@ -895,6 +898,7 @@
 				C93AC6DF1671E388004C11CB /* Icon@2x.png in Resources */,
 				C93AC6E21671E388004C11CB /* iTunesArtwork in Resources */,
 				C93AC8201671E38A004C11CB /* ChangeLog in Resources */,
+				C93AC84F1671E408004C11CB /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
