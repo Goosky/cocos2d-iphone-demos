@@ -117,7 +117,7 @@
     CCScene *scene = [CCScene node];
     CGSize winsize = [[CCDirector sharedDirector] winSize];
     CCLabelTTF *titleLabel = [CCLabelTTF labelWithString:title fontName:@"Helvetica" fontSize:25.0f];
-    titleLabel.position = ccp(winsize.width/4,winsize.height/3);
+    titleLabel.position = ccp(winsize.width/2,winsize.height*3/4);
     [scene addChild:titleLabel z:0];
     CCScene *pushTestScene = [SceneTestActer node];
     [scene addChild:pushTestScene z:1];
@@ -159,7 +159,7 @@
     if (self = [super init]) {        
         CGSize winsize = [[CCDirector sharedDirector] winSize];
         CCLabelTTF *titleLabel = [CCLabelTTF labelWithString:@"PushedScene is running" fontName:@"Helvetica" fontSize:25.0f];
-        titleLabel.position = ccp(winsize.width/4,winsize.height/3);
+        titleLabel.position = ccp(winsize.width/2,winsize.height*3/4);
         [self addChild:titleLabel z:0];
         CCMenuItemFont *backItem = [CCMenuItemFont itemWithString: @"Back(PopScene)" target:self selector:@selector(onBack:)];
         CCMenu *menu = [CCMenu menuWithItems: backItem, nil];
