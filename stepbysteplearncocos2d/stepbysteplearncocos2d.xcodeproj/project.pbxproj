@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9381A961675B44400C13D5B /* SceneTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C9381A951675B44400C13D5B /* SceneTest.m */; };
+		C9381CBA1675D52E00C13D5B /* mainTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C9381CB91675D52E00C13D5B /* mainTest.m */; };
 		C93AC8C31671ECB7004C11CB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93AC8C21671ECB7004C11CB /* QuartzCore.framework */; };
 		C93AC8C51671ECB7004C11CB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93AC8C41671ECB7004C11CB /* OpenGLES.framework */; };
 		C93AC8C71671ECB7004C11CB /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93AC8C61671ECB7004C11CB /* OpenAL.framework */; };
@@ -137,6 +139,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C9381A941675B44400C13D5B /* SceneTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneTest.h; path = SceneTest/SceneTest.h; sourceTree = "<group>"; };
+		C9381A951675B44400C13D5B /* SceneTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SceneTest.m; path = SceneTest/SceneTest.m; sourceTree = "<group>"; };
+		C9381CB81675D52E00C13D5B /* mainTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainTest.h; sourceTree = "<group>"; };
+		C9381CB91675D52E00C13D5B /* mainTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainTest.m; sourceTree = "<group>"; };
+		C9381CBB1675D61400C13D5B /* TestHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestHeader.h; sourceTree = "<group>"; };
 		C93AC8BE1671ECB7004C11CB /* stepbysteplearncocos2d.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stepbysteplearncocos2d.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93AC8C21671ECB7004C11CB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C93AC8C41671ECB7004C11CB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -422,6 +429,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C9381A921675B40300C13D5B /* SceneTest */ = {
+			isa = PBXGroup;
+			children = (
+				C9381A941675B44400C13D5B /* SceneTest.h */,
+				C9381A951675B44400C13D5B /* SceneTest.m */,
+			);
+			name = SceneTest;
+			sourceTree = "<group>";
+		};
 		C93AC8B31671ECB7004C11CB = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +475,10 @@
 		C93AC8D41671ECB8004C11CB /* stepbysteplearncocos2d */ = {
 			isa = PBXGroup;
 			children = (
+				C9381CBB1675D61400C13D5B /* TestHeader.h */,
+				C9381CB81675D52E00C13D5B /* mainTest.h */,
+				C9381CB91675D52E00C13D5B /* mainTest.m */,
+				C9381A921675B40300C13D5B /* SceneTest */,
 				C93ACA4C1671ECBC004C11CB /* AppDelegate.h */,
 				C93ACA4D1671ECBC004C11CB /* AppDelegate.m */,
 				C93ACA4F1671ECBC004C11CB /* HelloWorldLayer.h */,
@@ -1013,6 +1033,8 @@
 				C93ACA4E1671ECBC004C11CB /* AppDelegate.m in Sources */,
 				C93ACA511671ECBC004C11CB /* HelloWorldLayer.m in Sources */,
 				C93ACA541671ECBC004C11CB /* IntroLayer.m in Sources */,
+				C9381A961675B44400C13D5B /* SceneTest.m in Sources */,
+				C9381CBA1675D52E00C13D5B /* mainTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1034,7 +1056,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1053,7 +1075,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1069,6 +1091,7 @@
 				GCC_PREFIX_HEADER = stepbysteplearncocos2d/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"stepbysteplearncocos2d/libs/kazmath/include\"";
 				INFOPLIST_FILE = stepbysteplearncocos2d/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -1087,6 +1110,7 @@
 				GCC_PREFIX_HEADER = stepbysteplearncocos2d/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"stepbysteplearncocos2d/libs/kazmath/include\"";
 				INFOPLIST_FILE = stepbysteplearncocos2d/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -1116,6 +1140,7 @@
 				C93ACA591671ECBC004C11CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
