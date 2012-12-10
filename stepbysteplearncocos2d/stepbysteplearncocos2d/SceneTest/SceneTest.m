@@ -28,13 +28,28 @@
 //init the operation menus
 -(id) init{
     if (self = [super init]) {
-        CCMenuItemFont *pushSceneItem = [CCMenuItemFont itemWithString: @"PushScene" target:self selector:@selector(onPushScene:)];
-        CCMenuItemFont *replaceSceneItem = [CCMenuItemFont itemWithString: @"ReplaceScene" target:self selector:@selector(onReplaceScene:)];
+        CCMenuItemFont *pushSceneItem
+        = [CCMenuItemFont itemWithString: @"Push(Pop)Scene" target:self selector:@selector(onPushScene:)];
+        CCMenuItemFont *replaceSceneItem
+        = [CCMenuItemFont itemWithString: @"ReplaceScene" target:self selector:@selector(onReplaceScene:)];
 
-		CCMenuItemFont *pushSceneTranSlideInTItem = [CCMenuItemFont itemWithString: @"PushSceneTranSlideInT" target:self selector:@selector(onPushSceneTranSlideInT:)];
-		CCMenuItemFont *quitItem = [CCMenuItemFont itemWithString: @"Back" target:self selector:@selector(onBack:)];
+		CCMenuItemFont *pushSceneTranSlideInTItem
+        = [CCMenuItemFont itemWithString: @"PushSceneTranSlideInT" target:self selector:@selector(onPushSceneTranSlideInT:)];
         
-		CCMenu *menu = [CCMenu menuWithItems: pushSceneItem,replaceSceneItem, pushSceneTranSlideInTItem, quitItem, nil];
+        CCMenuItemFont *pushSceneTranSlideInBItem
+        = [CCMenuItemFont itemWithString:@"PushSceneTranSlideInB" target:self selector:@selector(onPushSceneTransitionSlideInB:)];
+        CCMenuItemFont *pushSceneCCTransitionShrinkGrowItem
+        = [CCMenuItemFont itemWithString:@"PushCCTransitionShrinkGrow" target:self selector:@selector(onPushSceneCCTransitionShrinkGrow:)];
+		CCMenuItemFont *quitItem
+        = [CCMenuItemFont itemWithString: @"Back" target:self selector:@selector(onBack:)];
+        
+		CCMenu *menu = [CCMenu menuWithItems:
+                        pushSceneItem,
+                        replaceSceneItem,
+                        pushSceneTranSlideInTItem,
+                        pushSceneTranSlideInBItem,
+                        pushSceneCCTransitionShrinkGrowItem,
+                        quitItem, nil];
 		[menu alignItemsVertically];
         
 		[self addChild: menu];
@@ -69,10 +84,19 @@
 
 -(void) onPushSceneTranSlideInT: (id) sender
 {
-	CCScene *scene = [SceneTestActer initSceneWithTitle:@"TransitionSlideInTedTestScene is running"];  
-	[[CCDirector sharedDirector] pushScene: [CCTransitionSlideInT transitionWithDuration:1 scene:scene]];
+	CCScene *scene = [SceneTestActer initSceneWithTitle:@"TransitionSlideInT TestScene is running"];
+	[[CCDirector sharedDirector] pushScene: [CCTransitionSlideInT transitionWithDuration:2 scene:scene]];
 }
 
+-(void) onPushSceneTransitionSlideInB:(id)sender{    
+	CCScene *scene = [SceneTestActer initSceneWithTitle:@"TransitionSlideInB TestScene is running"];
+	[[CCDirector sharedDirector] pushScene: [CCTransitionSlideInB transitionWithDuration:2 scene:scene]];
+}
+
+-(void) onPushSceneCCTransitionShrinkGrow:(id) sender{    
+	CCScene *scene = [SceneTestActer initSceneWithTitle:@"CCTransitionShrinkGrow TestScene is running"];
+	[[CCDirector sharedDirector] pushScene: [CCTransitionShrinkGrow transitionWithDuration:2 scene:scene]];
+}
 
 -(void) onBack: (id) sender
 {
