@@ -10,11 +10,10 @@
 #import "cocos2d.h"
 
 //the main scene
-@interface SceneTest : CCLayer {
-    NSMutableArray *_scenes;
+@interface SceneTest : CCLayer<CCTargetedTouchDelegate> {
+    CCMenu *menu;
 }
 +(CCScene *) scene;
-@property (assign) NSMutableArray* scenes;
 @end
 
 //the push scenetest
