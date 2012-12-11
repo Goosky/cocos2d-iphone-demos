@@ -28,7 +28,7 @@
 -(id) init{
     if (self = [super init]) {
         CCMenuItemFont *pushSceneItem
-        = [CCMenuItemFont itemWithString: @"Push(Pop)Scene" target:self selector:@selector(onReplaceCC:)];
+        = [CCMenuItemFont itemWithString: @"Push(Pop)Scene" target:self selector:@selector(onPushScene:)];
         CCMenuItemFont *replaceSceneItem
         = [CCMenuItemFont itemWithString: @"ReplaceScene" target:self selector:@selector(onReplaceScene:)];
 
@@ -129,8 +129,7 @@
 
 - (void)onEnter
 {
-	CCDirector *director =  [CCDirector sharedDirector];
-    
+	CCDirector *director =  [CCDirector sharedDirector];    
 	[[director touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 	[super onEnter];
 }
@@ -152,13 +151,14 @@
     menu.position = ccp(winsize.width/2,touchPoint.y);
 }
 
+#pragma mark pushScene
 //push a scene
--(void) onReplaceCC: (id) sender
+-(void) onPushScene: (id) sender
 {
 	CCScene *scene = [ScenePopTest scene];
 	[[CCDirector sharedDirector] pushScene: scene];
 }
-
+#pragma mark replaceScene
 //replace a scene
 -(void) onReplaceScene:(id) sender{
     CCScene *scene = [SceneTestActer initSceneWithTitle:@"ReplacedSceneTest is running"];
