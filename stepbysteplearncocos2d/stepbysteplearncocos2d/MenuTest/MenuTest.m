@@ -11,4 +11,22 @@
 
 @implementation MenuTest
 
+-(void) dealloc{
+    [super dealloc];
+}
+
++(CCScene*) scene{
+    CCScene *scene = [CCScene node];
+    MenuTest *layer = [MenuTest node];
+    [scene addChild:layer z:0];
+    return scene;
+}
+
+-(id) init{
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
+
 @end

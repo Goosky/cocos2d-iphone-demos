@@ -11,6 +11,7 @@
 
 #import "SceneTest.h"
 #import "mainTest.h"
+#import "MenuTest.h"
 
 
 #endif

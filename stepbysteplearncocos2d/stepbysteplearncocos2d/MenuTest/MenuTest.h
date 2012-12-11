@@ -12,5 +12,5 @@
 @interface MenuTest : CCLayer {
     
 }
-
++(CCScene*) scene;
 @end

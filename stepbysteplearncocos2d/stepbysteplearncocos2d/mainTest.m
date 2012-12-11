@@ -38,7 +38,7 @@
 }
 
 -(void) onMenuTest:(id) sender{
-   // [[CCDirector sharedDirector] replaceScene:[]];
+    [[CCDirector sharedDirector] replaceScene:[MenuTest scene]];
 }
 
 -(void) onQuit:(id) sender{
