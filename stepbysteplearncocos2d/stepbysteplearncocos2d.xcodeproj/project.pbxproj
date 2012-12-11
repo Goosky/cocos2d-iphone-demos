@@ -136,6 +136,7 @@
 		C93ACA511671ECBC004C11CB /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C93ACA501671ECBC004C11CB /* HelloWorldLayer.m */; };
 		C93ACA541671ECBC004C11CB /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C93ACA531671ECBC004C11CB /* IntroLayer.m */; };
 		C93ACA5B1671ECF0004C11CB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C93ACA5A1671ECF0004C11CB /* README.md */; };
+		C9BD06CF16770974008A81B8 /* MenuTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BD06CE16770974008A81B8 /* MenuTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -407,6 +408,8 @@
 		C93ACA521671ECBC004C11CB /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		C93ACA531671ECBC004C11CB /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		C93ACA5A1671ECF0004C11CB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = stepbysteplearncocos2d/README.md; sourceTree = "<group>"; };
+		C9BD06CD16770974008A81B8 /* MenuTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuTest.h; path = MenuTest/MenuTest.h; sourceTree = "<group>"; };
+		C9BD06CE16770974008A81B8 /* MenuTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuTest.m; path = MenuTest/MenuTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -475,6 +478,7 @@
 		C93AC8D41671ECB8004C11CB /* stepbysteplearncocos2d */ = {
 			isa = PBXGroup;
 			children = (
+				C9BD066A1677010C008A81B8 /* MenuTest */,
 				C9381CBB1675D61400C13D5B /* TestHeader.h */,
 				C9381CB81675D52E00C13D5B /* mainTest.h */,
 				C9381CB91675D52E00C13D5B /* mainTest.m */,
@@ -855,6 +859,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C9BD066A1677010C008A81B8 /* MenuTest */ = {
+			isa = PBXGroup;
+			children = (
+				C9BD06CD16770974008A81B8 /* MenuTest.h */,
+				C9BD06CE16770974008A81B8 /* MenuTest.m */,
+			);
+			name = MenuTest;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1035,6 +1048,7 @@
 				C93ACA541671ECBC004C11CB /* IntroLayer.m in Sources */,
 				C9381A961675B44400C13D5B /* SceneTest.m in Sources */,
 				C9381CBA1675D52E00C13D5B /* mainTest.m in Sources */,
+				C9BD06CF16770974008A81B8 /* MenuTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

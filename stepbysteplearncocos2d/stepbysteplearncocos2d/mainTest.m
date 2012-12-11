@@ -22,9 +22,11 @@
 -(id) init{
     if (self = [super init]) {
         CCMenuItemFont *sceneTestItem = [CCMenuItemFont itemWithString: @"SceneTest" target:self selector:@selector(onSceneTest:)];
+        CCMenuItemFont *menuTestItem = [CCMenuItemFont itemWithString:@"MenuTest" target:self selector:@selector(onMenuTest:)];
+        
         
         CCMenuItemFont *quitItem = [CCMenuItemFont itemWithString: @"Quit" target:self selector:@selector(onQuit:)];
-        CCMenu *menu = [CCMenu menuWithItems: sceneTestItem,quitItem, nil];
+        CCMenu *menu = [CCMenu menuWithItems: sceneTestItem,menuTestItem,quitItem, nil];
 		[menu alignItemsVertically];
 		[self addChild: menu];
     }
@@ -33,6 +35,10 @@
 
 -(void) onSceneTest:(id) sender{
     [[CCDirector sharedDirector] replaceScene:[SceneTest scene]];
+}
+
+-(void) onMenuTest:(id) sender{
+   // [[CCDirector sharedDirector] replaceScene:[]];
 }
 
 -(void) onQuit:(id) sender{
