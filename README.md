@@ -17,7 +17,7 @@ limitations under the License.
 
 author:Podevor
 
-Home: http://www.zhucongqi.cn
+Home: http://blog.zhucongqi.cn
 
 cocos2d-iphone-demos
 ====================
