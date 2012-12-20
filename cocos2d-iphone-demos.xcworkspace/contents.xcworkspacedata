@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:stepbysteplearncocos2d/stepbysteplearncocos2d.xcodeproj">
+      location = "group:BallGame/BallGame.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ballSend/ballSend.xcodeproj">
    </FileRef>
 </Workspace>

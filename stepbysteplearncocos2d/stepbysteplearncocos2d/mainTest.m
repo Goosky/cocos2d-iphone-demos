@@ -23,7 +23,7 @@
     if (self = [super init]) {
         CCMenuItemFont *sceneTestItem = [CCMenuItemFont itemWithString: @"SceneTest" target:self selector:@selector(onSceneTest:)];
         CCMenuItemFont *menuTestItem = [CCMenuItemFont itemWithString:@"MenuTest" target:self selector:@selector(onMenuTest:)];
-        
+        //[menuTestItem setFontSize:10];
         
         CCMenuItemFont *quitItem = [CCMenuItemFont itemWithString: @"Quit" target:self selector:@selector(onQuit:)];
         CCMenu *menu = [CCMenu menuWithItems: sceneTestItem,menuTestItem,quitItem, nil];

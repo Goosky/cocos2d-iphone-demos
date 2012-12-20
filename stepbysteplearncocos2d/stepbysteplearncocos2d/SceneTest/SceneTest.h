@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 
 //the main scene
-@interface SceneTest : CCLayer<CCTargetedTouchDelegate> {
+@interface SceneTest : CCLayer/*<CCTargetedTouchDelegate>*/ {
     CCMenu *menu;
 }
 +(CCScene *) scene;
