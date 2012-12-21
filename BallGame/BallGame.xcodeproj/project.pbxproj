@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C95065FC1682BC4C00AC5367 /* cheera-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = C95065FA1682BC4C00AC5367 /* cheera-ipadhd.plist */; };
+		C95065FD1682BC4C00AC5367 /* cheera-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = C95065FB1682BC4C00AC5367 /* cheera-ipadhd.png */; };
+		C95066011682BD5F00AC5367 /* cheerb-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = C95065FF1682BD5F00AC5367 /* cheerb-ipadhd.plist */; };
+		C95066021682BD5F00AC5367 /* cheerb-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = C95066001682BD5F00AC5367 /* cheerb-ipadhd.png */; };
+		C950663B1682C22200AC5367 /* prun-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = C95066371682C22200AC5367 /* prun-ipadhd.plist */; };
+		C950663C1682C22200AC5367 /* prun-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = C95066381682C22200AC5367 /* prun-ipadhd.png */; };
+		C950663D1682C22200AC5367 /* prun.plist in Resources */ = {isa = PBXBuildFile; fileRef = C95066391682C22200AC5367 /* prun.plist */; };
+		C950663E1682C22200AC5367 /* prun.png in Resources */ = {isa = PBXBuildFile; fileRef = C950663A1682C22200AC5367 /* prun.png */; };
+		C95066421682EF5C00AC5367 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C950663F1682EF5B00AC5367 /* Default@2x.png */; };
+		C95066431682EF5C00AC5367 /* pkick-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = C95066401682EF5C00AC5367 /* pkick-ipadhd.plist */; };
+		C95066441682EF5C00AC5367 /* pkick-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = C95066411682EF5C00AC5367 /* pkick-ipadhd.png */; };
+		C95066471682F82500AC5367 /* ball-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = C95066451682F82500AC5367 /* ball-ipadhd.plist */; };
+		C95066481682F82500AC5367 /* ball.plist in Resources */ = {isa = PBXBuildFile; fileRef = C95066461682F82500AC5367 /* ball.plist */; };
+		C950664D1683007200AC5367 /* keeper-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = C95066491683007200AC5367 /* keeper-ipadhd.plist */; };
+		C950664E1683007200AC5367 /* keeper-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = C950664A1683007200AC5367 /* keeper-ipadhd.png */; };
+		C950664F1683007200AC5367 /* keeper.plist in Resources */ = {isa = PBXBuildFile; fileRef = C950664B1683007200AC5367 /* keeper.plist */; };
+		C95066501683007200AC5367 /* keeper.png in Resources */ = {isa = PBXBuildFile; fileRef = C950664C1683007200AC5367 /* keeper.png */; };
+		C95066521683079600AC5367 /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = C95066511683079600AC5367 /* reset.png */; };
+		C950665D168314C800AC5367 /* Target.png in Resources */ = {isa = PBXBuildFile; fileRef = C950665B168314C800AC5367 /* Target.png */; };
+		C950665E168314C800AC5367 /* TargetHot.png in Resources */ = {isa = PBXBuildFile; fileRef = C950665C168314C800AC5367 /* TargetHot.png */; };
+		C95066891683477100AC5367 /* pkick.plist in Resources */ = {isa = PBXBuildFile; fileRef = C95066871683477000AC5367 /* pkick.plist */; };
+		C950668A1683477100AC5367 /* pkick.png in Resources */ = {isa = PBXBuildFile; fileRef = C95066881683477000AC5367 /* pkick.png */; };
+		C950668D1683499500AC5367 /* keeperleft.plist in Resources */ = {isa = PBXBuildFile; fileRef = C950668B1683499500AC5367 /* keeperleft.plist */; };
+		C950668E1683499500AC5367 /* keeperleft.png in Resources */ = {isa = PBXBuildFile; fileRef = C950668C1683499500AC5367 /* keeperleft.png */; };
 		C958FB8C1681E33300B56A32 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C958FB8B1681E33300B56A32 /* QuartzCore.framework */; };
 		C958FB8E1681E33300B56A32 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C958FB8D1681E33300B56A32 /* OpenGLES.framework */; };
 		C958FB901681E33300B56A32 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C958FB8F1681E33300B56A32 /* OpenAL.framework */; };
@@ -191,6 +215,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C95065FA1682BC4C00AC5367 /* cheera-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "cheera-ipadhd.plist"; path = "Resources/cheera-ipadhd.plist"; sourceTree = "<group>"; };
+		C95065FB1682BC4C00AC5367 /* cheera-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cheera-ipadhd.png"; path = "Resources/cheera-ipadhd.png"; sourceTree = "<group>"; };
+		C95065FF1682BD5F00AC5367 /* cheerb-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "cheerb-ipadhd.plist"; path = "Resources/cheerb-ipadhd.plist"; sourceTree = "<group>"; };
+		C95066001682BD5F00AC5367 /* cheerb-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cheerb-ipadhd.png"; path = "Resources/cheerb-ipadhd.png"; sourceTree = "<group>"; };
+		C95066371682C22200AC5367 /* prun-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "prun-ipadhd.plist"; path = "Resources/prun-ipadhd.plist"; sourceTree = "<group>"; };
+		C95066381682C22200AC5367 /* prun-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prun-ipadhd.png"; path = "Resources/prun-ipadhd.png"; sourceTree = "<group>"; };
+		C95066391682C22200AC5367 /* prun.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = prun.plist; path = Resources/prun.plist; sourceTree = "<group>"; };
+		C950663A1682C22200AC5367 /* prun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = prun.png; path = Resources/prun.png; sourceTree = "<group>"; };
+		C950663F1682EF5B00AC5367 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
+		C95066401682EF5C00AC5367 /* pkick-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "pkick-ipadhd.plist"; path = "Resources/pkick-ipadhd.plist"; sourceTree = "<group>"; };
+		C95066411682EF5C00AC5367 /* pkick-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pkick-ipadhd.png"; path = "Resources/pkick-ipadhd.png"; sourceTree = "<group>"; };
+		C95066451682F82500AC5367 /* ball-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "ball-ipadhd.plist"; path = "Resources/ball-ipadhd.plist"; sourceTree = "<group>"; };
+		C95066461682F82500AC5367 /* ball.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ball.plist; path = Resources/ball.plist; sourceTree = "<group>"; };
+		C95066491683007200AC5367 /* keeper-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "keeper-ipadhd.plist"; path = "Resources/keeper-ipadhd.plist"; sourceTree = "<group>"; };
+		C950664A1683007200AC5367 /* keeper-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keeper-ipadhd.png"; path = "Resources/keeper-ipadhd.png"; sourceTree = "<group>"; };
+		C950664B1683007200AC5367 /* keeper.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = keeper.plist; path = Resources/keeper.plist; sourceTree = "<group>"; };
+		C950664C1683007200AC5367 /* keeper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keeper.png; path = Resources/keeper.png; sourceTree = "<group>"; };
+		C95066511683079600AC5367 /* reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reset.png; path = Resources/reset.png; sourceTree = "<group>"; };
+		C950665B168314C800AC5367 /* Target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Target.png; path = Resources/Target.png; sourceTree = "<group>"; };
+		C950665C168314C800AC5367 /* TargetHot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TargetHot.png; path = Resources/TargetHot.png; sourceTree = "<group>"; };
+		C95066871683477000AC5367 /* pkick.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = pkick.plist; path = Resources/pkick.plist; sourceTree = "<group>"; };
+		C95066881683477000AC5367 /* pkick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pkick.png; path = Resources/pkick.png; sourceTree = "<group>"; };
+		C950668B1683499500AC5367 /* keeperleft.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = keeperleft.plist; path = Resources/keeperleft.plist; sourceTree = "<group>"; };
+		C950668C1683499500AC5367 /* keeperleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keeperleft.png; path = Resources/keeperleft.png; sourceTree = "<group>"; };
 		C958FB871681E33300B56A32 /* BallGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C958FB8B1681E33300B56A32 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C958FB8D1681E33300B56A32 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -611,6 +659,30 @@
 		C958FB9E1681E33300B56A32 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C950668B1683499500AC5367 /* keeperleft.plist */,
+				C950668C1683499500AC5367 /* keeperleft.png */,
+				C95066871683477000AC5367 /* pkick.plist */,
+				C95066881683477000AC5367 /* pkick.png */,
+				C950665B168314C800AC5367 /* Target.png */,
+				C950665C168314C800AC5367 /* TargetHot.png */,
+				C95066511683079600AC5367 /* reset.png */,
+				C95066491683007200AC5367 /* keeper-ipadhd.plist */,
+				C950664A1683007200AC5367 /* keeper-ipadhd.png */,
+				C950664B1683007200AC5367 /* keeper.plist */,
+				C950664C1683007200AC5367 /* keeper.png */,
+				C95066451682F82500AC5367 /* ball-ipadhd.plist */,
+				C95066461682F82500AC5367 /* ball.plist */,
+				C950663F1682EF5B00AC5367 /* Default@2x.png */,
+				C95066401682EF5C00AC5367 /* pkick-ipadhd.plist */,
+				C95066411682EF5C00AC5367 /* pkick-ipadhd.png */,
+				C95066371682C22200AC5367 /* prun-ipadhd.plist */,
+				C95066381682C22200AC5367 /* prun-ipadhd.png */,
+				C95066391682C22200AC5367 /* prun.plist */,
+				C950663A1682C22200AC5367 /* prun.png */,
+				C95065FF1682BD5F00AC5367 /* cheerb-ipadhd.plist */,
+				C95066001682BD5F00AC5367 /* cheerb-ipadhd.png */,
+				C95065FA1682BC4C00AC5367 /* cheera-ipadhd.plist */,
+				C95065FB1682BC4C00AC5367 /* cheera-ipadhd.png */,
 				C958FD801681E70000B56A32 /* ace-ipad.plist */,
 				C958FD811681E70000B56A32 /* ace-ipad.png */,
 				C958FD821681E70000B56A32 /* ace-ipadhd.plist */,
@@ -1212,6 +1284,30 @@
 				C958FDB11681E70000B56A32 /* grass-ipad.png in Resources */,
 				C958FDB21681E70000B56A32 /* grass-ipadhd.png in Resources */,
 				C958FDB31681E70000B56A32 /* grass.png in Resources */,
+				C95065FC1682BC4C00AC5367 /* cheera-ipadhd.plist in Resources */,
+				C95065FD1682BC4C00AC5367 /* cheera-ipadhd.png in Resources */,
+				C95066011682BD5F00AC5367 /* cheerb-ipadhd.plist in Resources */,
+				C95066021682BD5F00AC5367 /* cheerb-ipadhd.png in Resources */,
+				C950663B1682C22200AC5367 /* prun-ipadhd.plist in Resources */,
+				C950663C1682C22200AC5367 /* prun-ipadhd.png in Resources */,
+				C950663D1682C22200AC5367 /* prun.plist in Resources */,
+				C950663E1682C22200AC5367 /* prun.png in Resources */,
+				C95066421682EF5C00AC5367 /* Default@2x.png in Resources */,
+				C95066431682EF5C00AC5367 /* pkick-ipadhd.plist in Resources */,
+				C95066441682EF5C00AC5367 /* pkick-ipadhd.png in Resources */,
+				C95066471682F82500AC5367 /* ball-ipadhd.plist in Resources */,
+				C95066481682F82500AC5367 /* ball.plist in Resources */,
+				C950664D1683007200AC5367 /* keeper-ipadhd.plist in Resources */,
+				C950664E1683007200AC5367 /* keeper-ipadhd.png in Resources */,
+				C950664F1683007200AC5367 /* keeper.plist in Resources */,
+				C95066501683007200AC5367 /* keeper.png in Resources */,
+				C95066521683079600AC5367 /* reset.png in Resources */,
+				C950665D168314C800AC5367 /* Target.png in Resources */,
+				C950665E168314C800AC5367 /* TargetHot.png in Resources */,
+				C95066891683477100AC5367 /* pkick.plist in Resources */,
+				C950668A1683477100AC5367 /* pkick.png in Resources */,
+				C950668D1683499500AC5367 /* keeperleft.plist in Resources */,
+				C950668E1683499500AC5367 /* keeperleft.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1455,6 +1551,7 @@
 				C958FD221681E33500B56A32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,197 +7,197 @@
             <key>cheera0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{158,106},{50,60}}</string>
+                <string>{{326,406},{160,200}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{50,60}}</string>
+                <string>{{0,0},{160,200}}</string>
                 <key>sourceSize</key>
-                <string>{50,60}</string>
+                <string>{160,200}</string>
             </dict>
             <key>cheera1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{106,168},{50,60}}</string>
+                <string>{{164,608},{160,200}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{50,60}}</string>
+                <string>{{0,0},{160,200}}</string>
                 <key>sourceSize</key>
-                <string>{50,60}</string>
+                <string>{160,200}</string>
             </dict>
             <key>cheera10.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{54,2},{50,60}}</string>
+                <string>{{2,204},{160,200}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{50,60}}</string>
+                <string>{{0,0},{160,200}}</string>
                 <key>sourceSize</key>
-                <string>{50,60}</string>
+                <string>{160,200}</string>
             </dict>
             <key>cheera11.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,188},{50,60}}</string>
+                <string>{{316,810},{150,200}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{50,60}}</string>
+                <string>{{5,0},{150,200}}</string>
                 <key>sourceSize</key>
-                <string>{50,60}</string>
+                <string>{160,200}</string>
             </dict>
             <key>cheera12.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,126},{50,60}}</string>
+                <string>{{326,608},{150,200}}</string>
                 <key>offset</key>
-                <string>{0,0}</string>
+                <string>{-1,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{50,60}}</string>
+                <string>{{4,0},{150,200}}</string>
                 <key>sourceSize</key>
-                <string>{50,60}</string>
+                <string>{160,200}</string>
             </dict>
             <key>cheera13.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,64},{50,60}}</string>
+                <string>{{164,810},{150,200}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{50,60}}</string>
+                <string>{{5,0},{150,200}}</string>
                 <key>sourceSize</key>
-                <string>{50,60}</string>
+                <string>{160,200}</string>
             </dict>
             <key>cheera14.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{50,60}}</string>
+                <string>{{2,2},{160,200}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{50,60}}</string>
+                <string>{{0,0},{160,200}}</string>
                 <key>sourceSize</key>
-                <string>{50,60}</string>
+                <string>{160,200}</string>
             </dict>
             <key>cheera2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{106,106},{50,60}}</string>
+                <string>{{2,810},{160,200}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{50,60}}</string>
+                <string>{{0,0},{160,200}}</string>
                 <key>sourceSize</key>
-                <string>{50,60}</string>
+                <string>{160,200}</string>
             </dict>
             <key>cheera3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{168,54},{50,60}}</string>
+                <string>{{326,204},{160,200}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{50,60}}</string>
+                <string>{{0,0},{160,200}}</string>
                 <key>sourceSize</key>
-                <string>{50,60}</string>
+                <string>{160,200}</string>
             </dict>
             <key>cheera4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{106,54},{50,60}}</string>
+                <string>{{164,406},{160,200}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{50,60}}</string>
+                <string>{{0,0},{160,200}}</string>
                 <key>sourceSize</key>
-                <string>{50,60}</string>
+                <string>{160,200}</string>
             </dict>
             <key>cheera5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{54,178},{50,60}}</string>
+                <string>{{2,608},{160,200}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{50,60}}</string>
+                <string>{{0,0},{160,200}}</string>
                 <key>sourceSize</key>
-                <string>{50,60}</string>
+                <string>{160,200}</string>
             </dict>
             <key>cheera6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{54,116},{50,60}}</string>
+                <string>{{326,2},{160,200}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{50,60}}</string>
+                <string>{{0,0},{160,200}}</string>
                 <key>sourceSize</key>
-                <string>{50,60}</string>
+                <string>{160,200}</string>
             </dict>
             <key>cheera7.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{54,54},{50,60}}</string>
+                <string>{{164,204},{160,200}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{50,60}}</string>
+                <string>{{0,0},{160,200}}</string>
                 <key>sourceSize</key>
-                <string>{50,60}</string>
+                <string>{160,200}</string>
             </dict>
             <key>cheera8.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{178,2},{50,60}}</string>
+                <string>{{2,406},{160,200}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{50,60}}</string>
+                <string>{{0,0},{160,200}}</string>
                 <key>sourceSize</key>
-                <string>{50,60}</string>
+                <string>{160,200}</string>
             </dict>
             <key>cheera9.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{116,2},{50,60}}</string>
+                <string>{{164,2},{160,200}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{50,60}}</string>
+                <string>{{0,0},{160,200}}</string>
                 <key>sourceSize</key>
-                <string>{50,60}</string>
+                <string>{160,200}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -205,13 +205,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>cheera.png</string>
+            <string>cheera-ipadhd.png</string>
             <key>size</key>
-            <string>{256,256}</string>
+            <string>{512,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:13cf1672283064c4f52860f8fff2a370$</string>
+            <string>$TexturePacker:SmartUpdate:63d4ba95f1598ceddec3fd91f969d9d3$</string>
             <key>textureFileName</key>
-            <string>cheera.png</string>
+            <string>cheera-ipadhd.png</string>
         </dict>
     </dict>
 </plist>
