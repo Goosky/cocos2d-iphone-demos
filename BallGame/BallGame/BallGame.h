@@ -32,6 +32,9 @@ enum kKickId {
     CCControlButton *btnD;
     int kickId;
     CGPoint aimPos;
+    int keeperAnimationId;
+    CCSprite* success;
+    CCSprite* fail;
 }
 
 @end

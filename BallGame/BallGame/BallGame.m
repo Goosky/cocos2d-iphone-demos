@@ -43,7 +43,6 @@
 }
 
 -(void) kickAnimation{
-    CCLOG(@"called");
     [player stopAllActions];
     NSMutableArray *playerKicklist = [NSMutableArray arrayWithCapacity:24];
     CCSpriteFrameCache *spriteFrameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
@@ -211,14 +210,10 @@
      [cheerd runAction:[CCRepeatForever actionWithAction:[CCSequence actions: action, [action reverse], nil]]];*/
 }
 -(void) onEnter{
-    CCLOG(@"enter");
-    CCLOG(@"ball pos x %f y %f",ball.position.x,ball.position.y);
     [super onEnter];
 }
 
 -(void) onExit{
-    CCLOG(@"exit");
-    CCLOG(@"ball pos x %f y %f",ball.position.x,ball.position.y);
     [super onExit];
 }
 
@@ -226,12 +221,10 @@
 -(void) keeperLeftAnimation{
     [keeper stopAllActions];
     //move
-   /* id actionTo = [CCMoveTo actionWithDuration: 0.5
-                                      position:ccp(aimPos.x,aimPos.y)];//ccp(winSize.width*38.3,winSize.height*48.1)
+    id actionTo = [CCMoveTo actionWithDuration: 0.5
+                                      position:ccp(keeper.position.x-60,keeper.position.y)];//ccp(winSize.width*38.3,winSize.height*48.1)
     
-    id moveAction = [CCSequence actions:actionTo,
-                     [CCCallFunc actionWithTarget:self selector:@selector(stopBallAnimation)],nil];
-    [keeper runAction:actionTo];*/
+    [keeper runAction:actionTo];
     //left animation
     NSMutableArray *keeperLeftlist = [NSMutableArray arrayWithCapacity:22];
     CCSpriteFrameCache *spriteFrameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
@@ -240,12 +233,18 @@
         [keeperLeftlist addObject:frame];
     }
     CCAnimation *animation = [CCAnimation animationWithSpriteFrames:keeperLeftlist delay:0.2f / 3.0f];
-   
     [keeper runAction:[CCAnimate actionWithAnimation:animation]];
 }
 
 -(void) keeperRightAnimation{
-    
+    NSMutableArray *keeperLeftlist = [NSMutableArray arrayWithCapacity:22];
+    CCSpriteFrameCache *spriteFrameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
+    for (int i=1; i<=22; i++) {
+        CCSpriteFrame *frame = [spriteFrameCache spriteFrameByName:[NSString stringWithFormat:@"right00%02d.png", i]];
+        [keeperLeftlist addObject:frame];
+    }
+    CCAnimation *animation = [CCAnimation animationWithSpriteFrames:keeperLeftlist delay:0.2f / 3.0f];
+    [keeper runAction:[CCAnimate actionWithAnimation:animation]];
 }
 
 -(void) pressReset:(id) sender{
@@ -260,8 +259,7 @@
     kickId = kLeftUp;
     aimPos = btnA.position;
     [self playerRun];
-    [NSTimer scheduledTimerWithTimeInterval:3.8f target:self selector:@selector(keeperLeftAnimation) userInfo:nil repeats:NO];
-   // [self keeperLeftAnimation];
+    [self keeperRandomAnimation];
 }
 -(void) pressB:(id) sender{
     CCLOG(@"B");
@@ -269,6 +267,7 @@
     kickId = kRightUp;
     aimPos = btnB.position;
     [self playerRun];
+    [self keeperRandomAnimation];
 }
 -(void) pressC:(id) sender{
     CCLOG(@"C");
@@ -276,6 +275,7 @@
     kickId = kLeftDown;
     aimPos = btnC.position;
     [self playerRun];
+    [self keeperRandomAnimation];
 }
 -(void) pressD:(id) sender{
     CCLOG(@"D");
@@ -283,9 +283,54 @@
     kickId = kRightDown;
     aimPos = btnD.position;
     [self playerRun];
+    [self keeperRandomAnimation];
 }
 
--(void) removeAllBtn{    
+-(void) keeperRandomAnimation{
+    keeperAnimationId = arc4random()%4+1;
+    
+    CCLOG(@"keeperAnimationId %d",keeperAnimationId);
+    if (keeperAnimationId == 1
+        || keeperAnimationId == 3) {
+        [NSTimer scheduledTimerWithTimeInterval:3.8f target:self selector:@selector(keeperLeftAnimation) userInfo:nil repeats:NO];
+       
+    }else{        
+        [NSTimer scheduledTimerWithTimeInterval:3.8f target:self selector:@selector(keeperRightAnimation) userInfo:nil repeats:NO];
+    }
+    [NSTimer scheduledTimerWithTimeInterval:4.8f target:self selector:@selector(gameOver) userInfo:nil repeats:NO];
+}
+-(void) gameOver{    
+    if (((keeperAnimationId == kLeftUp || keeperAnimationId == kLeftDown) && (kickId == kLeftUp || kickId == kLeftDown))
+        ||((keeperAnimationId == kRightUp || keeperAnimationId == kRightDown) && (kickId == kRightUp || kickId == kRightDown))) {
+        CCLOG(@"success");
+        [self successAnimation];
+    }else{
+        CCLOG(@"fail");
+        [self failAnimation];
+    }
+}
+
+-(void) successAnimation{
+    CGSize winSize = [[CCDirector sharedDirector]winSize];
+    id actionTo = [CCMoveTo actionWithDuration: 1.5
+                                      position:ccp(fail.position.x,winSize.height/2)];
+    id action = [CCSequence actions:actionTo,
+                 [CCCallFunc actionWithTarget:self selector:@selector(pressReset:)],nil];
+    
+    [success runAction:action];
+}
+
+-(void) failAnimation{
+    CGSize winSize = [[CCDirector sharedDirector]winSize];
+    id actionTo = [CCMoveTo actionWithDuration: 1.5
+                                      position:ccp(fail.position.x,winSize.height/2)];
+    id action = [CCSequence actions:actionTo,
+                 [CCCallFunc actionWithTarget:self selector:@selector(pressReset:)],nil];
+    
+    [fail runAction:action];
+}
+
+-(void) removeAllBtn{
     [btnA removeFromParentAndCleanup:YES];
     [btnB removeFromParentAndCleanup:YES];
     [btnC removeFromParentAndCleanup:YES];

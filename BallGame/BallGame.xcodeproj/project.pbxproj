@@ -212,6 +212,10 @@
 		C958FDB11681E70000B56A32 /* grass-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C958FD971681E70000B56A32 /* grass-ipad.png */; };
 		C958FDB21681E70000B56A32 /* grass-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = C958FD981681E70000B56A32 /* grass-ipadhd.png */; };
 		C958FDB31681E70000B56A32 /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = C958FD991681E70000B56A32 /* grass.png */; };
+		C97F3D4016841864004CD5DC /* keeperright.plist in Resources */ = {isa = PBXBuildFile; fileRef = C97F3D3E16841864004CD5DC /* keeperright.plist */; };
+		C97F3D4116841864004CD5DC /* keeperright.png in Resources */ = {isa = PBXBuildFile; fileRef = C97F3D3F16841864004CD5DC /* keeperright.png */; };
+		C97F3D4516843DCB004CD5DC /* FailTip.png in Resources */ = {isa = PBXBuildFile; fileRef = C97F3D4316843DCA004CD5DC /* FailTip.png */; };
+		C97F3D4616843DCB004CD5DC /* SuccessTip.png in Resources */ = {isa = PBXBuildFile; fileRef = C97F3D4416843DCA004CD5DC /* SuccessTip.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -583,6 +587,10 @@
 		C958FD971681E70000B56A32 /* grass-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "grass-ipad.png"; path = "Resources/grass-ipad.png"; sourceTree = "<group>"; };
 		C958FD981681E70000B56A32 /* grass-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "grass-ipadhd.png"; path = "Resources/grass-ipadhd.png"; sourceTree = "<group>"; };
 		C958FD991681E70000B56A32 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grass.png; path = Resources/grass.png; sourceTree = "<group>"; };
+		C97F3D3E16841864004CD5DC /* keeperright.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = keeperright.plist; path = Resources/keeperright.plist; sourceTree = "<group>"; };
+		C97F3D3F16841864004CD5DC /* keeperright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keeperright.png; path = Resources/keeperright.png; sourceTree = "<group>"; };
+		C97F3D4316843DCA004CD5DC /* FailTip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FailTip.png; path = Resources/FailTip.png; sourceTree = "<group>"; };
+		C97F3D4416843DCA004CD5DC /* SuccessTip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SuccessTip.png; path = Resources/SuccessTip.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -659,6 +667,10 @@
 		C958FB9E1681E33300B56A32 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C97F3D4316843DCA004CD5DC /* FailTip.png */,
+				C97F3D4416843DCA004CD5DC /* SuccessTip.png */,
+				C97F3D3E16841864004CD5DC /* keeperright.plist */,
+				C97F3D3F16841864004CD5DC /* keeperright.png */,
 				C950668B1683499500AC5367 /* keeperleft.plist */,
 				C950668C1683499500AC5367 /* keeperleft.png */,
 				C95066871683477000AC5367 /* pkick.plist */,
@@ -1308,6 +1320,10 @@
 				C950668A1683477100AC5367 /* pkick.png in Resources */,
 				C950668D1683499500AC5367 /* keeperleft.plist in Resources */,
 				C950668E1683499500AC5367 /* keeperleft.png in Resources */,
+				C97F3D4016841864004CD5DC /* keeperright.plist in Resources */,
+				C97F3D4116841864004CD5DC /* keeperright.png in Resources */,
+				C97F3D4516843DCB004CD5DC /* FailTip.png in Resources */,
+				C97F3D4616843DCB004CD5DC /* SuccessTip.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

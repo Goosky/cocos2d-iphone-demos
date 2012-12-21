@@ -75,7 +75,7 @@
     CCSpriteFrameCache *spriteFrameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
     [spriteFrameCache addSpriteFramesWithFile:[NSString stringWithFormat:@"pkick.plist"]];
     [spriteFrameCache addSpriteFramesWithFile:[NSString stringWithFormat:@"keeperleft.plist"]];
-   // [spriteFrameCache addSpriteFramesWithFile:[NSString stringWithFormat:@"keeperright.plist"]];
+    [spriteFrameCache addSpriteFramesWithFile:[NSString stringWithFormat:@"keeperright.plist"]];
     
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
 	[director_ pushScene: [IntroLayer scene]]; 
