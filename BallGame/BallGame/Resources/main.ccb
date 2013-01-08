@@ -21,6 +21,130 @@
 		<key>children</key>
 		<array>
 			<dict>
+				<key>animatedProperties</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>displayFrame</key>
+						<dict>
+							<key>keyframes</key>
+							<array>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>0</integer>
+									</dict>
+									<key>name</key>
+									<string>displayFrame</string>
+									<key>time</key>
+									<real>0.0</real>
+									<key>type</key>
+									<integer>7</integer>
+									<key>value</key>
+									<array>
+										<string>ace0.png</string>
+										<string>ace.plist</string>
+									</array>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>0</integer>
+									</dict>
+									<key>name</key>
+									<string>displayFrame</string>
+									<key>time</key>
+									<real>0.80000001192092896</real>
+									<key>type</key>
+									<integer>7</integer>
+									<key>value</key>
+									<array>
+										<string>ace1.png</string>
+										<string>ace.plist</string>
+									</array>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>0</integer>
+									</dict>
+									<key>name</key>
+									<string>displayFrame</string>
+									<key>time</key>
+									<real>1.8333333730697632</real>
+									<key>type</key>
+									<integer>7</integer>
+									<key>value</key>
+									<array>
+										<string>ace2.png</string>
+										<string>ace.plist</string>
+									</array>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>0</integer>
+									</dict>
+									<key>name</key>
+									<string>displayFrame</string>
+									<key>time</key>
+									<real>2.9000000953674316</real>
+									<key>type</key>
+									<integer>7</integer>
+									<key>value</key>
+									<array>
+										<string>ace3.png</string>
+										<string>ace.plist</string>
+									</array>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>0</integer>
+									</dict>
+									<key>name</key>
+									<string>displayFrame</string>
+									<key>time</key>
+									<real>3.8666665554046631</real>
+									<key>type</key>
+									<integer>7</integer>
+									<key>value</key>
+									<array>
+										<string>ace2.png</string>
+										<string>ace.plist</string>
+									</array>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>0</integer>
+									</dict>
+									<key>name</key>
+									<string>displayFrame</string>
+									<key>time</key>
+									<real>5</real>
+									<key>type</key>
+									<integer>7</integer>
+									<key>value</key>
+									<array>
+										<string>ace0.png</string>
+										<string>ace.plist</string>
+									</array>
+								</dict>
+							</array>
+							<key>name</key>
+							<string>displayFrame</string>
+							<key>type</key>
+							<integer>7</integer>
+						</dict>
+					</dict>
+				</dict>
 				<key>baseClass</key>
 				<string>CCSprite</string>
 				<key>children</key>
@@ -80,6 +204,11 @@
 						<true/>
 					</dict>
 					<dict>
+						<key>baseValue</key>
+						<array>
+							<string>ace0.png</string>
+							<string>ace.plist</string>
+						</array>
 						<key>name</key>
 						<string>displayFrame</string>
 						<key>type</key>
@@ -87,10 +216,12 @@
 						<key>value</key>
 						<array>
 							<string>ace.plist</string>
-							<string>ace0.png</string>
+							<string>ace2.png</string>
 						</array>
 					</dict>
 				</array>
+				<key>seqExpanded</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>baseClass</key>
@@ -2100,19 +2231,19 @@
 			<key>autoPlay</key>
 			<true/>
 			<key>chainedSequenceId</key>
-			<integer>-1</integer>
+			<integer>0</integer>
 			<key>length</key>
-			<real>10</real>
+			<real>5</real>
 			<key>name</key>
-			<string>Default Timeline</string>
+			<string>ss</string>
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.0</real>
+			<real>5</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
-			<real>128</real>
+			<real>32</real>
 			<key>sequenceId</key>
 			<integer>0</integer>
 		</dict>
