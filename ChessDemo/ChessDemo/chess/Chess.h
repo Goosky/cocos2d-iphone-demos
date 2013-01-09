@@ -14,6 +14,9 @@
     CCSprite *card1;
     CCSprite *card2;
     CCSprite *card3;
+    CCLabelTTF *remainderTime;
+    NSTimer *remainderTimer;
+    int gameTime;
     NSMutableArray *cards;
     NSMutableArray *chosenCards;
     BOOL isHeader;

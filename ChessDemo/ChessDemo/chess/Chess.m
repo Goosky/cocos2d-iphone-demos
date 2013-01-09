@@ -25,6 +25,7 @@
     [chosenCards release];
 }
 
+
 -(void) didLoadFromCCB{
     cards = [NSMutableArray arrayWithCapacity:0];
     chosenCards = [NSMutableArray arrayWithCapacity:0];
@@ -34,12 +35,67 @@
     [cards addObject:card3];
     [cards retain];
     [chosenCards retain];
+    [self randomTag];
     isHeader = YES;
+    //timer    
+    remainderTimer = [NSTimer scheduledTimerWithTimeInterval:kGameStartRemainderTime target:self selector:@selector(startGame) userInfo:nil repeats:NO];
+    //remainder label
+    CGPoint remainderTimePos = remainderTime.position;
+    [remainderTime removeFromParentAndCleanup:YES];
+    remainderTime = [CCLabelTTF labelWithString:kRemainder fontName:@"Arial" fontSize:20];
+    remainderTime.position = remainderTimePos;
+    [self addChild:remainderTime];
+    gameTime = 30;
     //load effect    
     [[SimpleAudioEngine sharedEngine] preloadEffect:kClickEffect];
     [[SimpleAudioEngine sharedEngine] preloadEffect:kClearEffect];
 }
 
+#pragma mark - changeRemainderTimeLabel
+
+-(void) reStart{    
+    CCScene *scene = [CCBReader sceneWithNodeGraphFromFile:@"chess.ccbi"];
+    [[CCDirector sharedDirector] replaceScene:scene];
+}
+
+-(void) startGame{
+    remainderTimer = [NSTimer scheduledTimerWithTimeInterval:kChangeTime target:self selector:@selector(changeRemainderTimeLabel) userInfo:nil repeats:YES];
+}
+
+-(void) changeRemainderTimeLabel{
+    [remainderTime setString:[NSString stringWithFormat:@"%@%d",kRemainderInfo,gameTime]];
+    if (gameTime == 0) {
+        [remainderTimer invalidate];
+        [remainderTime setString:kGameOver];
+        self.isTouchEnabled = NO;
+    }else{
+        gameTime--;        
+    }
+}
+
+#pragma mark - random the card sprite tag
+
+-(void) randomTag{
+    //card list
+    NSMutableArray *allCards = [NSMutableArray arrayWithCapacity:0];
+    for (int cardIndex = 1; cardIndex <= kCardsCount; cardIndex++) {
+        [allCards addObject:[self index:cardIndex]];
+    }
+    //tag list
+    NSMutableArray *tags = [NSMutableArray arrayWithCapacity:0];
+    for (int i = 0; i < cards.count/2; i++) {
+        int index = arc4random()%allCards.count;
+        [tags addObject:[allCards objectAtIndex:index]];
+        [tags addObject:[allCards objectAtIndex:index]];
+        [allCards removeObjectAtIndex:index];
+    }
+    //set tag for sprite
+    for (CCSprite* sprite in cards) {
+        int index  = arc4random()%tags.count;        
+        sprite.tag = [[tags objectAtIndex:index] intValue];
+        [tags removeObjectAtIndex:index];
+    }
+}
 
 #pragma mark - rollover ,scale and change the spriteFrame
 
@@ -69,7 +125,7 @@
     [sprite removeFromParentAndCleanup:YES];
     //new sprite by tag
     if (isHeader) {
-        sprite = [CCSprite spriteWithFile:kTailImageName];
+        sprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"image%d.png",tag]];
     }else{
         sprite = [CCSprite spriteWithFile:kHeaderImageName];
     }
@@ -121,7 +177,7 @@
                 isHeader = YES;
                 //rollover card
                 [self rolloverByIndex:index];
-                //add chose list
+                //add chosen card
                 [chosenCards addObject:[self index:index]];
             }
         }
@@ -194,10 +250,16 @@
 -(void) checkWon{
     if ([cards count] == 0) {
         CCLOG(@"won");
+        if (gameTime != 0) {
+            [remainderTimer invalidate];
+            self.isTouchEnabled = NO;
+            [self reStart];
+        }        
     }
 }
 
 -(void) rolloverBack{
+    CCLOG(@"rolloverback");
     int firstIndex = [[chosenCards objectAtIndex:0] intValue];
     int secondIndex = [[chosenCards objectAtIndex:1] intValue];
     //rollover back
@@ -211,6 +273,6 @@
 }
 
 -(void) openTouch{
-     self.isTouchEnabled = YES;
+    self.isTouchEnabled = YES;
 }
 @end
