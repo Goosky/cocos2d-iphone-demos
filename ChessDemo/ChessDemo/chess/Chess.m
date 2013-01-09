@@ -155,7 +155,7 @@
 #pragma mark - dispatch touch event
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{ 
-    CCLOG(@"begin");
+    //CCLOG(@"begin");
     BOOL result = NO;
     result = [super ccTouchBegan:touch withEvent:event] && result;
 
@@ -163,7 +163,7 @@
 }
 
 -(void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    CCLOG(@"move");
+   // CCLOG(@"move");
 }
 
 -(void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{    
@@ -249,7 +249,10 @@
 
 -(void) checkWon{
     if ([cards count] == 0) {
-        CCLOG(@"won");
+       // CCLOG(@"won");
+        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"" message:@"额,爷们你赢了~" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"好~再来一次吧~", nil];
+        [view show];
+        [view release];
         if (gameTime != 0) {
             [remainderTimer invalidate];
             self.isTouchEnabled = NO;
@@ -259,7 +262,7 @@
 }
 
 -(void) rolloverBack{
-    CCLOG(@"rolloverback");
+   // CCLOG(@"rolloverback");
     int firstIndex = [[chosenCards objectAtIndex:0] intValue];
     int secondIndex = [[chosenCards objectAtIndex:1] intValue];
     //rollover back
