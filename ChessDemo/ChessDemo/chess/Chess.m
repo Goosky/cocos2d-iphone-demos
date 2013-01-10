@@ -8,10 +8,12 @@
 
 #import "Chess.h"
 #import "CCBReader.h"
-#import "const.h"
 #import "SimpleAudioEngine.h"
+#import "Player.h"
+#import "AppDelegate.h"
 
 @implementation Chess
+
 
 -(void) dealloc{
     [super dealloc];
@@ -23,9 +25,9 @@
         [obj release];
     }
     [chosenCards release];
+    [delegate release];
 }
-
-
+#pragma mark - init all variables
 -(void) didLoadFromCCB{
     cards = [NSMutableArray arrayWithCapacity:0];
     chosenCards = [NSMutableArray arrayWithCapacity:0];
@@ -46,9 +48,13 @@
     remainderTime.position = remainderTimePos;
     [self addChild:remainderTime];
     gameTime = 30;
-    //load effect    
-    [[SimpleAudioEngine sharedEngine] preloadEffect:kClickEffect];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:kClearEffect];
+    // init delegate
+    delegate = (AppController*) [[UIApplication sharedApplication] delegate];
+    [delegate retain];
+    //init player score
+    score = 0;
+    //test pull data    
+    [self pullData];
 }
 
 #pragma mark - changeRemainderTimeLabel
@@ -59,6 +65,7 @@
 }
 
 -(void) startGame{
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:kBackground loop:YES];
     remainderTimer = [NSTimer scheduledTimerWithTimeInterval:kChangeTime target:self selector:@selector(changeRemainderTimeLabel) userInfo:nil repeats:YES];
 }
 
@@ -69,6 +76,7 @@
         [remainderTime setString:kGameOver];
         self.isTouchEnabled = NO;
     }else{
+        [[SimpleAudioEngine sharedEngine] playEffect:kClockEffect];
         gameTime--;        
     }
 }
@@ -250,14 +258,16 @@
 -(void) checkWon{
     if ([cards count] == 0) {
        // CCLOG(@"won");
+        score = 123;
+        [self pushData];
         UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"" message:@"额,爷们你赢了~" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"好~再来一次吧~", nil];
         [view show];
         [view release];
         if (gameTime != 0) {
             [remainderTimer invalidate];
             self.isTouchEnabled = NO;
-            [self reStart];
-        }        
+        }
+        [self reStart];
     }
 }
 
@@ -277,5 +287,48 @@
 
 -(void) openTouch{
     self.isTouchEnabled = YES;
+}
+
+#pragma mark - push data to database ,pull data from database
+-(void) pushData{
+    CCLOG(@"push data");    
+    Player *player
+    = (Player*) [NSEntityDescription insertNewObjectForEntityForName:kEntityName inManagedObjectContext:delegate.managedObjectContext];
+    [player setUserName:@"朱丛启"];
+    [player setUserScore:[NSNumber numberWithInt:score]];
+    //push to sqlite
+    NSError *error;
+    BOOL isSaveSuccess = [delegate.managedObjectContext save:&error];
+    
+    if (!isSaveSuccess) {
+        NSLog(@"Error: %@,%@",error,[error userInfo]);
+    }else {
+        NSLog(@"Save successful!");
+    }
+}
+
+-(void) pullData{
+    CCLOG(@"pull data");
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Player" inManagedObjectContext:delegate.managedObjectContext];
+    [request setEntity:entity];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kSortDesc ascending:NO];
+    NSArray *sortDescriptions = [[NSArray alloc]initWithObjects:sortDescriptor, nil];
+    [request setSortDescriptors:sortDescriptions];
+    [sortDescriptions release];
+    [sortDescriptor release];
+    NSError *error = nil;
+    NSMutableArray *mutableFetchResult
+    = [[delegate.managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+    if (mutableFetchResult == nil) {
+        NSLog(@"Error: %@,%@",error,[error userInfo]);
+    }
+    
+    for (Player *player in mutableFetchResult) {
+        NSLog(@"name:%@---Score : %d",player.userName,player.userScore.intValue);
+    }
+    
+    [mutableFetchResult release];
+    [request release];
 }
 @end

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "const.h"
+#import "AppDelegate.h"
 
 @interface Chess : CCLayer {
     CCSprite *card;
@@ -20,6 +22,9 @@
     NSMutableArray *cards;
     NSMutableArray *chosenCards;
     BOOL isHeader;
+    //player score
+    int score;
+    //delegate
+    AppController *delegate;
 }
-
 @end

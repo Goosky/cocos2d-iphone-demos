@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C91CB55A169EC08F009BB07E /* ChessModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C91CB558169EC08F009BB07E /* ChessModel.xcdatamodeld */; };
+		C91CB55E169EC124009BB07E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C91CB55C169EC11E009BB07E /* CoreData.framework */; };
+		C91CB561169EC147009BB07E /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = C91CB560169EC147009BB07E /* Player.m */; };
 		C92ABE84169D181E00C97C9B /* image0.png in Resources */ = {isa = PBXBuildFile; fileRef = C92ABE7B169D181E00C97C9B /* image0.png */; };
 		C92ABE85169D181E00C97C9B /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = C92ABE7C169D181E00C97C9B /* image1.png */; };
 		C92ABE86169D181E00C97C9B /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = C92ABE7D169D181E00C97C9B /* image2.png */; };
@@ -179,6 +182,8 @@
 		C962F39E169A7A6100BCA068 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = C962F380169A7A6100BCA068 /* unzip.c */; };
 		C962F39F169A7A6100BCA068 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = C962F382169A7A6100BCA068 /* zip.c */; };
 		C962F3A0169A7A6100BCA068 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = C962F385169A7A6100BCA068 /* SSZipArchive.m */; };
+		C9705A52169D8EB30004F83B /* clock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9705A51169D8EB30004F83B /* clock.mp3 */; };
+		C9705A55169D918B0004F83B /* bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9705A54169D918B0004F83B /* bg.mp3 */; };
 		C9DEB9DA169C0A8600C0E1FF /* bang.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9DEB9D9169C0A8600C0E1FF /* bang.plist */; };
 		C9DEB9DC169C0DE100C0E1FF /* particleTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = C9DEB9DB169C0DE100C0E1FF /* particleTexture.png */; };
 		C9DEB9DF169C19D600C0E1FF /* clear.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9DEB9DD169C19D600C0E1FF /* clear.mp3 */; };
@@ -186,6 +191,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C91CB559169EC08F009BB07E /* ChessModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChessModel.xcdatamodel; sourceTree = "<group>"; };
+		C91CB55C169EC11E009BB07E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C91CB55F169EC147009BB07E /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = chess/Player.h; sourceTree = "<group>"; };
+		C91CB560169EC147009BB07E /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = chess/Player.m; sourceTree = "<group>"; };
 		C92ABE7B169D181E00C97C9B /* image0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image0.png; path = Resources/image0.png; sourceTree = "<group>"; };
 		C92ABE7C169D181E00C97C9B /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image1.png; path = Resources/image1.png; sourceTree = "<group>"; };
 		C92ABE7D169D181E00C97C9B /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image2.png; path = Resources/image2.png; sourceTree = "<group>"; };
@@ -522,6 +531,8 @@
 		C962F383169A7A6100BCA068 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		C962F384169A7A6100BCA068 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		C962F385169A7A6100BCA068 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
+		C9705A51169D8EB30004F83B /* clock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clock.mp3; path = Resources/clock.mp3; sourceTree = "<group>"; };
+		C9705A54169D918B0004F83B /* bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bg.mp3; path = Resources/bg.mp3; sourceTree = "<group>"; };
 		C9DEB9D9169C0A8600C0E1FF /* bang.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bang.plist; path = Resources/bang.plist; sourceTree = "<group>"; };
 		C9DEB9DB169C0DE100C0E1FF /* particleTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = particleTexture.png; path = Resources/particleTexture.png; sourceTree = "<group>"; };
 		C9DEB9DD169C19D600C0E1FF /* clear.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clear.mp3; path = Resources/clear.mp3; sourceTree = "<group>"; };
@@ -541,6 +552,7 @@
 				C962F1AE169A767800BCA068 /* UIKit.framework in Frameworks */,
 				C962F1B0169A767800BCA068 /* Foundation.framework in Frameworks */,
 				C962F1B2169A767800BCA068 /* CoreGraphics.framework in Frameworks */,
+				C91CB55E169EC124009BB07E /* CoreData.framework in Frameworks */,
 				C962F1B4169A767800BCA068 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,6 +580,7 @@
 		C962F1A2169A767800BCA068 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C91CB55C169EC11E009BB07E /* CoreData.framework */,
 				C962F1A3169A767800BCA068 /* QuartzCore.framework */,
 				C962F1A5169A767800BCA068 /* OpenGLES.framework */,
 				C962F1A7169A767800BCA068 /* OpenAL.framework */,
@@ -601,6 +614,8 @@
 		C962F1B6169A767800BCA068 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C9705A54169D918B0004F83B /* bg.mp3 */,
+				C9705A51169D8EB30004F83B /* clock.mp3 */,
 				C92ABE7B169D181E00C97C9B /* image0.png */,
 				C92ABE7C169D181E00C97C9B /* image1.png */,
 				C92ABE7D169D181E00C97C9B /* image2.png */,
@@ -993,6 +1008,9 @@
 				C962F346169A7A0000BCA068 /* Chess.h */,
 				C962F347169A7A0000BCA068 /* Chess.m */,
 				C93DA8FC169AF5E800E1FF8B /* const.h */,
+				C91CB558169EC08F009BB07E /* ChessModel.xcdatamodeld */,
+				C91CB55F169EC147009BB07E /* Player.h */,
+				C91CB560169EC147009BB07E /* Player.m */,
 			);
 			name = Chess;
 			sourceTree = "<group>";
@@ -1201,6 +1219,8 @@
 				C92ABE8A169D181E00C97C9B /* image6.png in Resources */,
 				C92ABE8B169D181E00C97C9B /* image7.png in Resources */,
 				C92ABE8C169D181E00C97C9B /* image8.png in Resources */,
+				C9705A52169D8EB30004F83B /* clock.mp3 in Resources */,
+				C9705A55169D918B0004F83B /* bg.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1341,6 +1361,8 @@
 				C962F39E169A7A6100BCA068 /* unzip.c in Sources */,
 				C962F39F169A7A6100BCA068 /* zip.c in Sources */,
 				C962F3A0169A7A6100BCA068 /* SSZipArchive.m in Sources */,
+				C91CB55A169EC08F009BB07E /* ChessModel.xcdatamodeld in Sources */,
+				C91CB561169EC147009BB07E /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1449,6 +1471,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C91CB558169EC08F009BB07E /* ChessModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C91CB559169EC08F009BB07E /* ChessModel.xcdatamodel */,
+			);
+			currentVersion = C91CB559169EC08F009BB07E /* ChessModel.xcdatamodel */;
+			name = ChessModel.xcdatamodeld;
+			path = chess/ChessModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C962F196169A767800BCA068 /* Project object */;
 }

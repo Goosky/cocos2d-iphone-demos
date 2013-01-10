@@ -63,6 +63,6 @@
 -(void) makeTransition:(ccTime)dt
 {
     CCScene *scene = [CCBReader sceneWithNodeGraphFromFile:@"chess.ccbi"];
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:scene withColor:ccWHITE]];
+	[[CCDirector sharedDirector] replaceScene:scene];
 }
 @end

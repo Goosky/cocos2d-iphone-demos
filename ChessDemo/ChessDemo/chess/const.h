@@ -23,14 +23,18 @@ const CGFloat kGameStartRemainderTime = 0.5f;
 const CGFloat kChangeTime = 1.0f;
 
 //sprite images values
-NSString *kHeaderImageName = @"image0.png";
-NSString *kTailImageName = @"image1.png";
-NSString *kParticaleName = @"bang.plist";
-NSString *kClickEffect = @"click.mp3";
-NSString *kClearEffect = @"clear.mp3";
-NSString *kRemainderInfo = @"剩餘时间 :";
-NSString *kRemainder = @"遊戲开始";
-NSString *kGameOver = @"遊戲结束";
+#define kHeaderImageName  @"image0.png"
+#define kTailImageName  @"image1.png"
+#define kParticaleName  @"bang.plist"
+#define kClickEffect  @"click.mp3"
+#define kClearEffect  @"clear.mp3"
+#define kClockEffect  @"clock.mp3"
+#define kBackground  @"bg.mp3"
+#define kRemainderInfo  @"游戏剩余时间 :"
+#define kRemainder  @"游戏即将开始..."
+#define kGameOver  @"游戏结束"
+#define kEntityName  @"Player"
+#define kSortDesc  @"userScore"
 
 const int kFirstBang = 110;
 const int kSecondBang = 111;
