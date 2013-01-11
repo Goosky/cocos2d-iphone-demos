@@ -35,9 +35,11 @@ const CGFloat kChangeTime = 1.0f;
 #define kGameOver  @"游戏结束"
 #define kEntityName  @"Player"
 #define kSortDesc  @"userScore"
+#define kScoreRemainder @"您的成绩是: "
 
 const int kFirstBang = 110;
 const int kSecondBang = 111;
 const int kCardsCount = 8;
+const int kGameTime = 30;
 
 #endif

@@ -17,13 +17,16 @@
     CCSprite *card2;
     CCSprite *card3;
     CCLabelTTF *remainderTime;
+    CCLabelTTF *scoreLabel;
     NSTimer *remainderTimer;
+    NSTimer *openTouchTimer;
     int gameTime;
     NSMutableArray *cards;
     NSMutableArray *chosenCards;
     BOOL isHeader;
     //player score
     int score;
+    NSString *userName;
     //delegate
     AppController *delegate;
 }

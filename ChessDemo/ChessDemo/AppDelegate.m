@@ -17,6 +17,7 @@
 @implementation AppController
 
 @synthesize window=window_, navController=navController_, director=director_;
+@synthesize userName = userName_;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -87,6 +88,9 @@
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
     
    // CCScene *scene = [CCBReader sceneWithNodeGraphFromFile:@"chess.ccbi"];
+    
+    userName_ = @"朱丛启";
+    
 	[director_ pushScene: [IntroLayer scene]];
 
 	
@@ -129,6 +133,7 @@
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ stopAnimation];
+    exit(0);
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application

@@ -8,6 +8,7 @@
 
 #import "Chess.h"
 #import "CCBReader.h"
+#import "CCControlButton.h"
 #import "SimpleAudioEngine.h"
 #import "Player.h"
 #import "AppDelegate.h"
@@ -26,9 +27,11 @@
     }
     [chosenCards release];
     [delegate release];
+    [openTouchTimer release];
 }
 #pragma mark - init all variables
 -(void) didLoadFromCCB{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     cards = [NSMutableArray arrayWithCapacity:0];
     chosenCards = [NSMutableArray arrayWithCapacity:0];
     [cards addObject:card];
@@ -39,6 +42,12 @@
     [chosenCards retain];
     [self randomTag];
     isHeader = YES;
+    //game time
+    gameTime = kGameTime;
+    // init delegate
+    delegate = (AppController*) [[UIApplication sharedApplication] delegate];
+    [delegate retain];
+    userName = delegate.userName;
     //timer    
     remainderTimer = [NSTimer scheduledTimerWithTimeInterval:kGameStartRemainderTime target:self selector:@selector(startGame) userInfo:nil repeats:NO];
     //remainder label
@@ -47,29 +56,35 @@
     remainderTime = [CCLabelTTF labelWithString:kRemainder fontName:@"Arial" fontSize:20];
     remainderTime.position = remainderTimePos;
     [self addChild:remainderTime];
-    gameTime = 30;
-    // init delegate
-    delegate = (AppController*) [[UIApplication sharedApplication] delegate];
-    [delegate retain];
-    //init player score
-    score = 0;
-    //test pull data    
-    [self pullData];
+    //score label
+    CGPoint scoreLabelPos = scoreLabel.position;
+    [scoreLabel removeFromParentAndCleanup:YES];
+    scoreLabel = [CCLabelTTF labelWithString:kScoreRemainder fontName:@"Arial" fontSize:20];
+    scoreLabel.position = scoreLabelPos;
+    [self addChild:scoreLabel];
+    //set score
+    //init player info
+    Player *player = [self pullData];
+    score = [[player userScore] intValue];
+    [self updateScore];
 }
 
 #pragma mark - changeRemainderTimeLabel
 
--(void) reStart{    
+-(void) reStart{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     CCScene *scene = [CCBReader sceneWithNodeGraphFromFile:@"chess.ccbi"];
     [[CCDirector sharedDirector] replaceScene:scene];
 }
 
 -(void) startGame{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:kBackground loop:YES];
     remainderTimer = [NSTimer scheduledTimerWithTimeInterval:kChangeTime target:self selector:@selector(changeRemainderTimeLabel) userInfo:nil repeats:YES];
 }
 
 -(void) changeRemainderTimeLabel{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     [remainderTime setString:[NSString stringWithFormat:@"%@%d",kRemainderInfo,gameTime]];
     if (gameTime == 0) {
         [remainderTimer invalidate];
@@ -84,6 +99,7 @@
 #pragma mark - random the card sprite tag
 
 -(void) randomTag{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     //card list
     NSMutableArray *allCards = [NSMutableArray arrayWithCapacity:0];
     for (int cardIndex = 1; cardIndex <= kCardsCount; cardIndex++) {
@@ -108,6 +124,7 @@
 #pragma mark - rollover ,scale and change the spriteFrame
 
 -(void)rolloverByIndex:(int) index { //play effect
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     if (isHeader) {
         [[SimpleAudioEngine sharedEngine] playEffect:kClickEffect];
     }
@@ -124,6 +141,7 @@
 
 
 -(void) changeSprite:(id) sender data:(NSNumber*) nIndex{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     //format index
     int index = [nIndex intValue];    
     CCSprite *sprite = [cards objectAtIndex:index];
@@ -150,19 +168,28 @@
 
 #pragma mark - common 
 
+
+-(void) updateScore{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+    [scoreLabel setString:[NSString stringWithFormat:@"%@%d",kScoreRemainder,score]];
+}
+
 - (CGRect)rectInPixels:(CCSprite*) sprite
 {
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
 	CGSize s = [[sprite texture] contentSizeInPixels];
     return CGRectMake(-s.width/2, -s.height/2, s.width, s.height);
 }
 
 -(NSNumber*) index:(int) index{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     return [NSNumber numberWithInt:index];
 }
 
 #pragma mark - dispatch touch event
 
--(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{ 
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     //CCLOG(@"begin");
     BOOL result = NO;
     result = [super ccTouchBegan:touch withEvent:event] && result;
@@ -171,10 +198,12 @@
 }
 
 -(void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
    // CCLOG(@"move");
 }
 
--(void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{    
+-(void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     UITouch *touch = [touches anyObject];
     for (int index = 0; index < [cards count]; index++) {
         CGRect r = [self rectInPixels:[cards objectAtIndex:index]];
@@ -197,6 +226,7 @@
 
 #pragma mark - check card is the same or not
 -(void) checkCard{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     if ([chosenCards count] == 2) {
         self.isTouchEnabled = NO;
         int firstIndex = [[chosenCards objectAtIndex:0] intValue];
@@ -216,6 +246,7 @@
 }
 
 -(void) bangAnimation{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     int firstIndex = [[chosenCards objectAtIndex:0] intValue];
     int secondIndex = [[chosenCards objectAtIndex:1] intValue];
     CCSprite *firstChoose = [cards objectAtIndex:firstIndex];
@@ -241,6 +272,7 @@
 }
 
 -(void) clearParticales{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     id f = [self getChildByTag:kFirstBang];
     [f removeFromParentAndCleanup:YES];
     id s = [self getChildByTag:kSecondBang];
@@ -250,12 +282,14 @@
    
     //check win or not
     [self checkWon];
-    [NSTimer scheduledTimerWithTimeInterval:kOpenTouchTime
+    openTouchTimer = [NSTimer scheduledTimerWithTimeInterval:kOpenTouchTime
                                      target:self selector:@selector(openTouch) userInfo:nil repeats:NO];
+    [openTouchTimer retain];
 }
 
 
 -(void) checkWon{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     if ([cards count] == 0) {
        // CCLOG(@"won");
         score = 123;
@@ -265,13 +299,15 @@
         [view release];
         if (gameTime != 0) {
             [remainderTimer invalidate];
-            self.isTouchEnabled = NO;
+            [openTouchTimer invalidate];
+            self.isTouchEnabled = YES;//sure??
         }
         [self reStart];
     }
 }
 
 -(void) rolloverBack{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
    // CCLOG(@"rolloverback");
     int firstIndex = [[chosenCards objectAtIndex:0] intValue];
     int secondIndex = [[chosenCards objectAtIndex:1] intValue];
@@ -286,16 +322,28 @@
 }
 
 -(void) openTouch{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     self.isTouchEnabled = YES;
 }
 
 #pragma mark - push data to database ,pull data from database
 -(void) pushData{
-    CCLOG(@"push data");    
-    Player *player
-    = (Player*) [NSEntityDescription insertNewObjectForEntityForName:kEntityName inManagedObjectContext:delegate.managedObjectContext];
-    [player setUserName:@"朱丛启"];
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+    CCLOG(@"push data");
+    Player *player = nil;
+    if ([self hasData]) { //logged score
+        player = [self pullData];
+        score += [[player userScore] intValue];
+        CCLOG(@"score %d",[[player userScore] intValue]);
+        [self updateScore];
+    }else{
+        player = (Player*) [NSEntityDescription
+                            insertNewObjectForEntityForName:kEntityName inManagedObjectContext:delegate.managedObjectContext];        
+        
+    }    
+    [player setUserName:userName];
     [player setUserScore:[NSNumber numberWithInt:score]];
+    
     //push to sqlite
     NSError *error;
     BOOL isSaveSuccess = [delegate.managedObjectContext save:&error];
@@ -307,10 +355,36 @@
     }
 }
 
--(void) pullData{
-    CCLOG(@"pull data");
+
+-(BOOL) hasData{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+    BOOL result = YES;
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Player" inManagedObjectContext:delegate.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:kEntityName inManagedObjectContext:delegate.managedObjectContext];
+    [request setEntity:entity];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kSortDesc ascending:NO];
+    NSArray *sortDescriptions = [[NSArray alloc]initWithObjects:sortDescriptor, nil];
+    [request setSortDescriptors:sortDescriptions];
+    [sortDescriptions release];
+    [sortDescriptor release];
+    NSError *error = nil;
+    NSMutableArray *mutableFetchResult
+    = [[delegate.managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+    if (mutableFetchResult == nil) {
+        NSLog(@"Error: %@,%@",error,[error userInfo]);
+    }    
+    if (mutableFetchResult.count == 0) {
+        result = NO;
+    }
+    [mutableFetchResult release];
+    return result;
+}
+
+
+-(Player*) pullData{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:kEntityName inManagedObjectContext:delegate.managedObjectContext];
     [request setEntity:entity];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kSortDesc ascending:NO];
     NSArray *sortDescriptions = [[NSArray alloc]initWithObjects:sortDescriptor, nil];
@@ -323,12 +397,16 @@
     if (mutableFetchResult == nil) {
         NSLog(@"Error: %@,%@",error,[error userInfo]);
     }
-    
-    for (Player *player in mutableFetchResult) {
-        NSLog(@"name:%@---Score : %d",player.userName,player.userScore.intValue);
+    Player *player = nil;
+    for (Player *playerObj in mutableFetchResult) {
+        NSLog(@"name:%@---Score : %d",playerObj.userName,playerObj.userScore.intValue);
+        if ([playerObj.userName isEqualToString:userName]) {
+            player = playerObj;
+            break;
+        }
     }
-    
     [mutableFetchResult release];
     [request release];
+    return player;
 }
 @end

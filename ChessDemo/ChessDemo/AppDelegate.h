@@ -15,9 +15,12 @@
 	UINavigationController *navController_;
 
 	CCDirectorIOS	*director_;							// weak ref
+    
+    NSString *userName_;
 }
 
 @property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, retain) NSString *userName;
 @property (readonly) UINavigationController *navController;
 @property (readonly) CCDirectorIOS *director;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
