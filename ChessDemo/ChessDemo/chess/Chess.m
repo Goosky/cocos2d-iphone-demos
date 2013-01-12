@@ -32,6 +32,13 @@
 #pragma mark - init all variables
 -(void) didLoadFromCCB{
     CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+    [self initGame];
+}
+
+-(void) initGame{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+    
+    self.isTouchEnabled = NO;    
     cards = [NSMutableArray arrayWithCapacity:0];
     chosenCards = [NSMutableArray arrayWithCapacity:0];
     [cards addObject:card];
@@ -48,22 +55,33 @@
     delegate = (AppController*) [[UIApplication sharedApplication] delegate];
     [delegate retain];
     userName = delegate.userName;
-    //timer    
+    //timer
     remainderTimer = [NSTimer scheduledTimerWithTimeInterval:kGameStartRemainderTime target:self selector:@selector(startGame) userInfo:nil repeats:NO];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:kBackground loop:YES];
     //remainder label
     CGPoint remainderTimePos = remainderTime.position;
     [remainderTime removeFromParentAndCleanup:YES];
     remainderTime = [CCLabelTTF labelWithString:kRemainder fontName:@"Arial" fontSize:20];
+    [remainderTime setColor:ccBLACK];
     remainderTime.position = remainderTimePos;
     [self addChild:remainderTime];
+    //user label
+    CGPoint userLabelPos = userLabel.position;
+    [userLabel removeFromParentAndCleanup:YES];
+    userLabel = [CCLabelTTF labelWithString:userName fontName:@"Arial" fontSize:20];
+    userLabel.position = userLabelPos;
+    [userLabel setColor:ccBLACK];
+    [self addChild:userLabel];
     //score label
     CGPoint scoreLabelPos = scoreLabel.position;
     [scoreLabel removeFromParentAndCleanup:YES];
     scoreLabel = [CCLabelTTF labelWithString:kScoreRemainder fontName:@"Arial" fontSize:20];
     scoreLabel.position = scoreLabelPos;
+    [scoreLabel setColor:ccBLACK];
     [self addChild:scoreLabel];
     //set score
     //init player info
+    errorTimes = 0;
     Player *player = [self pullData];
     score = [[player userScore] intValue];
     [self updateScore];
@@ -79,8 +97,8 @@
 
 -(void) startGame{
     CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:kBackground loop:YES];
     remainderTimer = [NSTimer scheduledTimerWithTimeInterval:kChangeTime target:self selector:@selector(changeRemainderTimeLabel) userInfo:nil repeats:YES];
+    self.isTouchEnabled = YES;
 }
 
 -(void) changeRemainderTimeLabel{
@@ -151,7 +169,8 @@
     [sprite removeFromParentAndCleanup:YES];
     //new sprite by tag
     if (isHeader) {
-        sprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"image%d.png",tag]];
+       // sprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"image%d.png",tag]];
+        sprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"image%d.png",tag]];
     }else{
         sprite = [CCSprite spriteWithFile:kHeaderImageName];
     }
@@ -235,13 +254,17 @@
         CCSprite *secondChoose = [cards objectAtIndex:secondIndex];
         if ( firstChoose.tag == secondChoose.tag) {
             //the same card
+            //compute rollover card score
+            [self computeRolloverCardScore];
             [NSTimer scheduledTimerWithTimeInterval:kShowSameCardTime
                                              target:self selector:@selector(bangAnimation) userInfo:nil repeats:NO];
         }else{
             //not same
+            errorTimes++;
             [NSTimer scheduledTimerWithTimeInterval:kRolloverBckDelayTime
                                              target:self selector:@selector(rolloverBack) userInfo:nil repeats:NO];
         }
+        [self updateScore];//update the score label
     }
 }
 
@@ -291,17 +314,18 @@
 -(void) checkWon{
     CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     if ([cards count] == 0) {
-       // CCLOG(@"won");
-        score = 123;
-        [self pushData];
-        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"" message:@"额,爷们你赢了~" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"好~再来一次吧~", nil];
-        [view show];
-        [view release];
+        // CCLOG(@"won");
+        //compute in time score
+        [self computeInTimeScore];
+        
         if (gameTime != 0) {
             [remainderTimer invalidate];
             [openTouchTimer invalidate];
-            self.isTouchEnabled = YES;//sure??
+            self.isTouchEnabled = YES;//
         }
+        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"" message:@"额,爷们你赢了~" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"好~再来一次吧~", nil];
+        [view show];
+        [view release];
         [self reStart];
     }
 }
@@ -326,23 +350,68 @@
     self.isTouchEnabled = YES;
 }
 
+#pragma mark - compute score
+
+-(void) computeRolloverCardScore{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));   
+    /*
+    Player *player = nil;
+    if ([self hasData]) {
+        player = [self pullData];
+        score = [[player userScore] intValue];
+    }else{
+        score = 0;
+    }*/
+    
+    switch (errorTimes) {
+        case 0://first round
+            score += 100;
+            break;
+        case 1://second round
+            score += 50;
+            break;
+        case 2://third
+            score += 0;
+            break;
+        case 3://fourth
+            score += -50;
+            break;
+        case 4://fiveth
+            score += -100;
+        case 5://sixth
+            score += -150;
+            break;
+    }
+    errorTimes = 0;
+    
+    if (score < firstLevelScore) {
+        score = firstLevelScore;
+    }
+    [self pushData];
+}
+
+-(void) computeInTimeScore{
+    CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+    score += gameTime*10;
+    [self pushData];
+}
+
+
 #pragma mark - push data to database ,pull data from database
+
 -(void) pushData{
     CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     CCLOG(@"push data");
     Player *player = nil;
     if ([self hasData]) { //logged score
         player = [self pullData];
-        score += [[player userScore] intValue];
-        CCLOG(@"score %d",[[player userScore] intValue]);
-        [self updateScore];
     }else{
         player = (Player*) [NSEntityDescription
-                            insertNewObjectForEntityForName:kEntityName inManagedObjectContext:delegate.managedObjectContext];        
+                            insertNewObjectForEntityForName:kEntityName inManagedObjectContext:delegate.managedObjectContext];
+        [player setUserName:userName];
         
-    }    
-    [player setUserName:userName];
-    [player setUserScore:[NSNumber numberWithInt:score]];
+    }
+    [player setUserScore:[NSNumber numberWithInt:score]]; 
     
     //push to sqlite
     NSError *error;

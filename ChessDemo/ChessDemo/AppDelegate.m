@@ -10,8 +10,6 @@
 
 #import "AppDelegate.h"
 #import "IntroLayer.h"
-#import "SimpleAudioEngine.h"
-#import "const.h"
 
 
 @implementation AppController
@@ -79,18 +77,13 @@
 	// Assume that PVR images have premultiplied alpha
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 
-    //load effect
-    [[SimpleAudioEngine sharedEngine] preloadEffect:kClickEffect];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:kClearEffect];
-    // [[SimpleAudioEngine sharedEngine] preloadEffect:kClockEffect];
-    // [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:kBackground];
     
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
     
    // CCScene *scene = [CCBReader sceneWithNodeGraphFromFile:@"chess.ccbi"];
     
     userName_ = @"朱丛启";
-    
+    [self loadResouces];
 	[director_ pushScene: [IntroLayer scene]];
 
 	
@@ -107,6 +100,17 @@
 	
 	return YES;
 }
+
+-(void) loadResouces{
+    
+    //load effect
+    // [[SimpleAudioEngine sharedEngine] preloadEffect:kClickEffect];
+    // [[SimpleAudioEngine sharedEngine] preloadEffect:kClearEffect];
+    // [[SimpleAudioEngine sharedEngine] preloadEffect:kClockEffect];
+    // [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:kBackground];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"cards.plist"];
+}
+
 
 // Supported orientations: Landscape. Customize it for your own needs
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

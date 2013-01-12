@@ -19,12 +19,11 @@ const CGFloat kRolloverBckDelayTime = 1.0f;
 const CGFloat kClearPartileTime = 0.2f;
 const CGFloat kShowSameCardTime = 1.0f;
 const CGFloat kOpenTouchTime = 0.5f;
-const CGFloat kGameStartRemainderTime = 0.5f;
+const CGFloat kGameStartRemainderTime = 2.2f;
 const CGFloat kChangeTime = 1.0f;
 
 //sprite images values
 #define kHeaderImageName  @"image0.png"
-#define kTailImageName  @"image1.png"
 #define kParticaleName  @"bang.plist"
 #define kClickEffect  @"click.mp3"
 #define kClearEffect  @"clear.mp3"
@@ -40,6 +39,13 @@ const CGFloat kChangeTime = 1.0f;
 const int kFirstBang = 110;
 const int kSecondBang = 111;
 const int kCardsCount = 8;
+
+//time
 const int kGameTime = 30;
+
+//score
+
+const int firstLevelScore = 100;
+
 
 #endif

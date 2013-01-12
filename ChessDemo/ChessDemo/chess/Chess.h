@@ -17,6 +17,7 @@
     CCSprite *card2;
     CCSprite *card3;
     CCLabelTTF *remainderTime;
+    CCLabelTTF *userLabel;
     CCLabelTTF *scoreLabel;
     NSTimer *remainderTimer;
     NSTimer *openTouchTimer;
@@ -27,6 +28,7 @@
     //player score
     int score;
     NSString *userName;
+    int errorTimes;
     //delegate
     AppController *delegate;
 }
