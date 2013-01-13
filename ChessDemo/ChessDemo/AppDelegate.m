@@ -10,6 +10,8 @@
 
 #import "AppDelegate.h"
 #import "IntroLayer.h"
+#import "const.h"
+#import "SimpleAudioEngine.h"
 
 
 @implementation AppController
@@ -104,10 +106,10 @@
 -(void) loadResouces{
     
     //load effect
-    // [[SimpleAudioEngine sharedEngine] preloadEffect:kClickEffect];
-    // [[SimpleAudioEngine sharedEngine] preloadEffect:kClearEffect];
-    // [[SimpleAudioEngine sharedEngine] preloadEffect:kClockEffect];
-    // [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:kBackground];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:kClickEffect];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:kClearEffect];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:kClockEffect];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:kBackground];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"cards.plist"];
 }
 

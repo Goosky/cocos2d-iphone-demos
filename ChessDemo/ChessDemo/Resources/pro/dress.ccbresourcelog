@@ -14,9 +14,12 @@ cards-ipadhd.png
 chess.ccbi
 Default-Landscape~ipad.png
 Default.png
+dress.ccbi
 fps_images-hd.png
 fps_images-ipadhd.png
 fps_images.png
+gray-ipadhd.png
+gray.png
 header.png
 Icon-72.png
 Icon-Small-50.png
@@ -25,14 +28,6 @@ Icon-Small@2x.png
 Icon.png
 Icon@2x.png
 image0.png
-image1.png
-image2.png
-image3.png
-image4.png
-image5.png
-image6.png
-image7.png
-image8.png
 Info.plist
 particleTexture.png
 tail.png

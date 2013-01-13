@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "const.h"
 #import "AppDelegate.h"
 
 @interface Chess : CCLayer {
@@ -16,15 +15,14 @@
     CCSprite *card1;
     CCSprite *card2;
     CCSprite *card3;
+    CCSprite *gray;
     CCLabelTTF *remainderTime;
     CCLabelTTF *userLabel;
     CCLabelTTF *scoreLabel;
     NSTimer *remainderTimer;
-    NSTimer *openTouchTimer;
     int gameTime;
     NSMutableArray *cards;
     NSMutableArray *chosenCards;
-    BOOL isHeader;
     //player score
     int score;
     NSString *userName;
