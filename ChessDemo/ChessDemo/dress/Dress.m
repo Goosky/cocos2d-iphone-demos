@@ -13,30 +13,35 @@
 
 @implementation Dress
 
--(void) dealloc{
+- (void)dealloc{
     [super dealloc];
     [suffix release];
     [navScroll release];
     [decorateScroll release];
 }
 
--(void) didLoadFromCCB{
+- (void)didLoadFromCCB{
+   /* NSString *test = [NSString stringWithFormat:@"%d",12345];
+    CCLOG(@"test len %d",test.length);
+    for (int i =0 ; i < test.length; i++) {
+        CCLOG(@"sub str %@",[NSString stringWithFormat:@"%c",[test characterAtIndex:i]]);
+    }*/
     [self initGame];
     [self showDecorateWithIndex:chooseIndex];
 }
 
 #pragma mark - init game
 
--(void) initGame{
+- (void)initGame{
     [self initConf];
     [self initGameNav];
 }
 
--(void) initConf{
+- (void)initConf{
     
     chooseIndex = 1;
     
-    if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ){//iphone or ipod
+    if( UI_USER_INTERFACE_IDIOM()== UIUserInterfaceIdiomPhone ){//iphone or ipod
         scrollWidth = kScrollWidth/2;
         chooseSize = kChooseSize/2;
         chooseSizeOffset = kChooseSizeOffset/2;
@@ -57,7 +62,9 @@
       }
 }
 
--(void) initGameNav{ 
+#pragma mark - show nav scrollview
+
+- (void)initGameNav{ 
 
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
@@ -82,14 +89,14 @@
     [[[CCDirector sharedDirector] view] addSubview:bg];
     [bg release];
     
-    for (int i=1; i<=kChooseCount; i++) {
+    for (int i=1; i<=kChooseCount; i++){
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(kFirstChoosenFrameStartPoint, i*chooseSize, chooseSize, chooseSize)];
         [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"btnn%@.png",suffix]] forState:UIControlStateNormal];
         [button setTag:i];
         [button setCenter:CGPointMake(chooseSize/2, (i-1)*(chooseSize+chooseSizeOffset)+chooseSize*0.6)];
         [button setAdjustsImageWhenHighlighted:NO];
         [button setAdjustsImageWhenDisabled:NO];
-        [button addTarget:self action:@selector(showDecorate:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(showDecorate:)forControlEvents:UIControlEventTouchUpInside];
         [navScroll addSubview:button];
         [button release];
     }
@@ -98,18 +105,14 @@
 }
 
 
-
-
-#pragma mark - event catch
-
--(void) showDecorate:(id)sender{
+- (void)showDecorate:(id)sender{
     //default all button
-    for (int i=1; i<=kChooseCount; i++) {
+    for (int i=1; i<=kChooseCount; i++){
         UIButton *btn = (UIButton *)[navScroll viewWithTag:i];
         [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"btnn%@.png",suffix]] forState:UIControlStateNormal];
         [btn setEnabled:YES];
     }
-    UIButton *button = (UIButton*) sender;
+    UIButton *button = (UIButton*)sender;
     [button setEnabled:NO];
     [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"btns%@.png",suffix]] forState:UIControlStateNormal];
     //the disable img by buttion tag
@@ -118,12 +121,14 @@
     [self showDecorateWithIndex:chooseIndex];
 }
 
--(void) showDecorateWithIndex:(int) decorateIndex{
+#pragma mark - show Descorate scroll view
+
+- (void)showDecorateWithIndex:(int)decorateIndex{
     
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     int count = 0;
     NSString *imageName = @"";
-    switch (decorateIndex) {
+    switch (decorateIndex){
         case 1:{
             count = 15;
             imageName = [NSString stringWithFormat:@"decorate%@.png",suffix];
@@ -141,7 +146,7 @@
             break;
     }
     
-    if (decorateScroll != nil && decorateScroll.tag == kSecondScrollTag) {
+    if (decorateScroll != nil && decorateScroll.tag == kSecondScrollTag){
         [decorateScroll removeFromSuperview];
     }
     decorateScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(startPoint, winSize.height, scrollWidth, winSize.height)];
@@ -155,7 +160,7 @@
     decorateScroll.scrollEnabled = YES;
     //add grag bg
     UIImageView *bg = (UIImageView *)[[[CCDirector sharedDirector] view] viewWithTag:kSecondBgTag];
-    if (bg != nil) {
+    if (bg != nil){
         [bg removeFromSuperview];
     }
     bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"choosedecorategraybg%@.png",suffix]]];
@@ -166,7 +171,7 @@
     [[[CCDirector sharedDirector] view] addSubview:bg];
     [bg release];
     //decorate choose nav
-    for (int i=1; i<=count; i++) {
+    for (int i=1; i<=count; i++){
         UIButton *button =
         [[UIButton alloc] initWithFrame:CGRectMake(startPoint+chooseSize/2, i*chooseSize, chooseSize, chooseSize)];
         [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
@@ -175,7 +180,7 @@
         [button setCenter:CGPointMake(chooseSize/2, (i-1)*(chooseSize+chooseSizeOffset)+chooseSize*0.6)];
         [button setAdjustsImageWhenHighlighted:NO];
         [button setAdjustsImageWhenDisabled:NO];
-        [button addTarget:self action:@selector(changeDecorate:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(changeDecorate:)forControlEvents:UIControlEventTouchUpInside];
         [decorateScroll addSubview:button];
         [button release];
     }
@@ -185,21 +190,19 @@
     [decorateScroll release];
 }
 
--(void) changeDecorate:(id) sender{
+- (void)changeDecorate:(id)sender{
     //default all button
-    for (int i=1; i<=kChooseCount; i++) {
+    for (int i=1; i<=kChooseCount; i++){
         UIButton *btn = (UIButton *)[decorateScroll viewWithTag:i];
         [btn setEnabled:YES];
     }
-    UIButton *button = (UIButton*) sender;
+    UIButton *button = (UIButton*)sender;
     [button setEnabled:NO];
     [self changeDecorateWithIndex:button.tag];
 }
 
--(void) changeDecorateWithIndex:(int) decorateIndex{
+- (void)changeDecorateWithIndex:(int)decorateIndex{
    CCLOG(@"choose index %d current index %d",chooseIndex,decorateIndex);
 }
-
-#pragma mark - common
 
 @end
