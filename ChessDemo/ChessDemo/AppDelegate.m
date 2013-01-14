@@ -84,7 +84,6 @@
     
    // CCScene *scene = [CCBReader sceneWithNodeGraphFromFile:@"chess.ccbi"];
     
-    userName_ = @"朱丛启";
     [self loadResouces];
 	[director_ pushScene: [IntroLayer scene]];
 
@@ -105,6 +104,7 @@
 
 -(void) loadResouces{
     
+    userName_ = @"player";//just a interface
     //load effect
     [[SimpleAudioEngine sharedEngine] preloadEffect:kClickEffect];
     [[SimpleAudioEngine sharedEngine] preloadEffect:kClearEffect];
@@ -196,7 +196,6 @@
 // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
 - (NSManagedObjectContext *)managedObjectContext
 {
-    CCLOG(@"mmm content");
     if (_managedObjectContext != nil) {
         return _managedObjectContext;
     }
@@ -216,7 +215,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"ChessModel" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"dataModel" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }

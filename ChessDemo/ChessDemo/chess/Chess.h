@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "AppDelegate.h"
 
 @interface Chess : CCLayer {
     CCSprite *card;
@@ -17,7 +16,6 @@
     CCSprite *card3;
     CCSprite *gray;
     CCLabelTTF *remainderTime;
-    CCLabelTTF *userLabel;
     CCLabelTTF *scoreLabel;
     NSTimer *remainderTimer;
     int gameTime;
@@ -25,9 +23,6 @@
     NSMutableArray *chosenCards;
     //player score
     int score;
-    NSString *userName;
     int errorTimes;
-    //delegate
-    AppController *delegate;
 }
 @end

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C91CB55A169EC08F009BB07E /* ChessModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C91CB558169EC08F009BB07E /* ChessModel.xcdatamodeld */; };
+		C91CB55A169EC08F009BB07E /* dataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C91CB558169EC08F009BB07E /* dataModel.xcdatamodeld */; };
 		C91CB55E169EC124009BB07E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C91CB55C169EC11E009BB07E /* CoreData.framework */; };
 		C91CB561169EC147009BB07E /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = C91CB560169EC147009BB07E /* Player.m */; };
 		C92ABE84169D181E00C97C9B /* image0.png in Resources */ = {isa = PBXBuildFile; fileRef = C92ABE7B169D181E00C97C9B /* image0.png */; };
@@ -183,6 +183,7 @@
 		C9776A6316A182B900F80638 /* Dress.m in Sources */ = {isa = PBXBuildFile; fileRef = C9776A6216A182B900F80638 /* Dress.m */; };
 		C9776A6E16A18FC000F80638 /* gray-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = C9776A6C16A18FC000F80638 /* gray-ipadhd.png */; };
 		C9776A6F16A18FC000F80638 /* gray.png in Resources */ = {isa = PBXBuildFile; fileRef = C9776A6D16A18FC000F80638 /* gray.png */; };
+		C97FF4B016A3B423007F83AB /* DbHepler.m in Sources */ = {isa = PBXBuildFile; fileRef = C97FF4AF16A3B423007F83AB /* DbHepler.m */; };
 		C9ACD52F16A294B0007F8D48 /* btnn.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACD52C16A294B0007F8D48 /* btnn.png */; };
 		C9ACD53016A294B0007F8D48 /* btns.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACD52D16A294B0007F8D48 /* btns.png */; };
 		C9ACD53116A294B0007F8D48 /* decorate.png in Resources */ = {isa = PBXBuildFile; fileRef = C9ACD52E16A294B0007F8D48 /* decorate.png */; };
@@ -200,7 +201,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C91CB559169EC08F009BB07E /* ChessModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChessModel.xcdatamodel; sourceTree = "<group>"; };
+		C91CB559169EC08F009BB07E /* dataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dataModel.xcdatamodel; sourceTree = "<group>"; };
 		C91CB55C169EC11E009BB07E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C91CB55F169EC147009BB07E /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = chess/Player.h; sourceTree = "<group>"; };
 		C91CB560169EC147009BB07E /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = chess/Player.m; sourceTree = "<group>"; };
@@ -209,7 +210,6 @@
 		C93DA8C0169A9E8900E1FF8B /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = card.png; path = Resources/card.png; sourceTree = "<group>"; };
 		C93DA8F8169ABEDA00E1FF8B /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header.png; path = Resources/header.png; sourceTree = "<group>"; };
 		C93DA8F9169ABEDA00E1FF8B /* tail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tail.png; path = Resources/tail.png; sourceTree = "<group>"; };
-		C93DA8FC169AF5E800E1FF8B /* const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = const.h; path = chess/const.h; sourceTree = "<group>"; };
 		C962F19F169A767800BCA068 /* ChessDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C962F1A3169A767800BCA068 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C962F1A5169A767800BCA068 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -542,6 +542,9 @@
 		C9776A6216A182B900F80638 /* Dress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dress.m; path = dress/Dress.m; sourceTree = "<group>"; };
 		C9776A6C16A18FC000F80638 /* gray-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gray-ipadhd.png"; path = "Resources/gray-ipadhd.png"; sourceTree = "<group>"; };
 		C9776A6D16A18FC000F80638 /* gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gray.png; path = Resources/gray.png; sourceTree = "<group>"; };
+		C97FF4AE16A3B423007F83AB /* DbHepler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DbHepler.h; path = data/DbHepler.h; sourceTree = "<group>"; };
+		C97FF4AF16A3B423007F83AB /* DbHepler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DbHepler.m; path = data/DbHepler.m; sourceTree = "<group>"; };
+		C97FF4B316A3B6B2007F83AB /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = const.h; path = common/const.h; sourceTree = "<group>"; };
 		C9ACD52C16A294B0007F8D48 /* btnn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btnn.png; path = Resources/btnn.png; sourceTree = "<group>"; };
 		C9ACD52D16A294B0007F8D48 /* btns.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btns.png; path = Resources/btns.png; sourceTree = "<group>"; };
 		C9ACD52E16A294B0007F8D48 /* decorate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = decorate.png; path = Resources/decorate.png; sourceTree = "<group>"; };
@@ -616,6 +619,8 @@
 		C962F1B5169A767800BCA068 /* ChessDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C97FF4B116A3B5F1007F83AB /* common */,
+				C97FF4AD16A3B3E0007F83AB /* data */,
 				C9776A5B16A180F300F80638 /* dress */,
 				C962F345169A79E600BCA068 /* Chess */,
 				C962F32D169A767B00BCA068 /* AppDelegate.h */,
@@ -1035,8 +1040,7 @@
 			children = (
 				C962F346169A7A0000BCA068 /* Chess.h */,
 				C962F347169A7A0000BCA068 /* Chess.m */,
-				C93DA8FC169AF5E800E1FF8B /* const.h */,
-				C91CB558169EC08F009BB07E /* ChessModel.xcdatamodeld */,
+				C91CB558169EC08F009BB07E /* dataModel.xcdatamodeld */,
 				C91CB55F169EC147009BB07E /* Player.h */,
 				C91CB560169EC147009BB07E /* Player.m */,
 			);
@@ -1167,6 +1171,23 @@
 				C9776A6216A182B900F80638 /* Dress.m */,
 			);
 			name = dress;
+			sourceTree = "<group>";
+		};
+		C97FF4AD16A3B3E0007F83AB /* data */ = {
+			isa = PBXGroup;
+			children = (
+				C97FF4AE16A3B423007F83AB /* DbHepler.h */,
+				C97FF4AF16A3B423007F83AB /* DbHepler.m */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
+		C97FF4B116A3B5F1007F83AB /* common */ = {
+			isa = PBXGroup;
+			children = (
+				C97FF4B316A3B6B2007F83AB /* const.h */,
+			);
+			name = common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1406,9 +1427,10 @@
 				C962F39E169A7A6100BCA068 /* unzip.c in Sources */,
 				C962F39F169A7A6100BCA068 /* zip.c in Sources */,
 				C962F3A0169A7A6100BCA068 /* SSZipArchive.m in Sources */,
-				C91CB55A169EC08F009BB07E /* ChessModel.xcdatamodeld in Sources */,
+				C91CB55A169EC08F009BB07E /* dataModel.xcdatamodeld in Sources */,
 				C91CB561169EC147009BB07E /* Player.m in Sources */,
 				C9776A6316A182B900F80638 /* Dress.m in Sources */,
+				C97FF4B016A3B423007F83AB /* DbHepler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1519,14 +1541,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C91CB558169EC08F009BB07E /* ChessModel.xcdatamodeld */ = {
+		C91CB558169EC08F009BB07E /* dataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C91CB559169EC08F009BB07E /* ChessModel.xcdatamodel */,
+				C91CB559169EC08F009BB07E /* dataModel.xcdatamodel */,
 			);
-			currentVersion = C91CB559169EC08F009BB07E /* ChessModel.xcdatamodel */;
-			name = ChessModel.xcdatamodeld;
-			path = chess/ChessModel.xcdatamodeld;
+			currentVersion = C91CB559169EC08F009BB07E /* dataModel.xcdatamodel */;
+			name = dataModel.xcdatamodeld;
+			path = chess/dataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
