@@ -17,10 +17,12 @@
 	CCDirectorIOS	*director_;							// weak ref
     
     NSString *userName_;
+    CGFloat sceneScale_;
 }
 
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) NSString *userName;
+@property (nonatomic) CGFloat sceneScale;
 @property (readonly) UINavigationController *navController;
 @property (readonly) CCDirectorIOS *director;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

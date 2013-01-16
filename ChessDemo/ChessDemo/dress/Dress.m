@@ -9,6 +9,7 @@
 #import "Dress.h"
 #import "CCBReader.h"
 #import "const.h"
+#import "AppDelegate.h"
 
 
 @implementation Dress
@@ -34,14 +35,22 @@
 
 - (void)initGame{
     [self initConf];
+    [self initScene];
     [self initGameNav];
 }
 
 - (void)initConf{
+    //init scene scale
+    AppController *delegate = (AppController*)[[UIApplication sharedApplication] delegate];
+    sceneScale = delegate.sceneScale;
     
     chooseIndex = 1;
     
-    if( UI_USER_INTERFACE_IDIOM()== UIUserInterfaceIdiomPhone ){//iphone or ipod
+    if( !isPad ){//iphone or ipod
+        if (isRetina) {
+            
+        }else{
+        }
         scrollWidth = kScrollWidth/2;
         chooseSize = kChooseSize/2;
         chooseSizeOffset = kChooseSizeOffset/2;
@@ -49,17 +58,24 @@
         decorateCountOffset = kDecorateCountOffset/2;
         startPoint = kSecondChoosenFrameStartPoint/2;
         suffix = @"";
-    }/*else if([[CCDirector sharedDirector]  enableRetinaDisplay:YES]){//Retina ipad Device
-      
-    }*/else{
-          scrollWidth = kScrollWidth;
-          chooseSize = kChooseSize;
-          chooseSizeOffset = kChooseSizeOffset;
-          chooseCountOffset = kChooseCountOffset;
-          decorateCountOffset = kDecorateCountOffset;
-          startPoint = kSecondChoosenFrameStartPoint;
-          suffix = @"@2x";
-      }
+    }else{//ipad
+        scrollWidth = kScrollWidth;
+        chooseSize = kChooseSize;
+        chooseSizeOffset = kChooseSizeOffset;
+        chooseCountOffset = kChooseCountOffset;
+        decorateCountOffset = kDecorateCountOffset;
+        startPoint = kSecondChoosenFrameStartPoint;
+        suffix = @"@2x";
+    }
+}
+
+- (void)initScene{
+   /* CGPoint oldPos = bg.position;
+    [bg removeFromParentAndCleanup:YES];
+    bg = [CCSprite spriteWithFile:@"bg-ipad.jpg"];
+    bg.position = oldPos;
+    [self addChild:bg];*/
+    [bg setScale:sceneScale];
 }
 
 #pragma mark - show nav scrollview
@@ -79,15 +95,15 @@
     navScroll.pagingEnabled = NO;
     navScroll.canCancelContentTouches = YES;
     navScroll.tag = kFirstScrollTag;
-    navScroll.delegate = self;
+    //navScroll.delegate = self;
     //add grag bg
-    UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"choosedecorategraybg%@.png",suffix]]];
-    [bg setBounds:CGRectMake(kFirstChoosenFrameStartPoint, winSize.height, scrollWidth, winSize.height)];
-    [bg setCenter:CGPointMake(kFirstChoosenFrameStartPoint+scrollWidth/2, winSize.height/2)];
-    [bg setAlpha:kAlphaValue];
-    [bg setTag:kFirstBgTag];
-    [[[CCDirector sharedDirector] view] addSubview:bg];
-    [bg release];
+    UIImageView *scrollBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"choosedecorategraybg%@.png",suffix]]];
+    [scrollBg setBounds:CGRectMake(kFirstChoosenFrameStartPoint, winSize.height, scrollWidth, winSize.height)];
+    [scrollBg setCenter:CGPointMake(kFirstChoosenFrameStartPoint+scrollWidth/2, winSize.height/2)];
+    [scrollBg setAlpha:kAlphaValue];
+    [scrollBg setTag:kFirstBgTag];
+    [[[CCDirector sharedDirector] view] addSubview:scrollBg];
+    [scrollBg release];
     
     for (int i=1; i<=kChooseCount; i++){
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(kFirstChoosenFrameStartPoint, i*chooseSize, chooseSize, chooseSize)];
@@ -152,24 +168,24 @@
     decorateScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(startPoint, winSize.height, scrollWidth, winSize.height)];
     decorateScroll.contentSize = CGSizeMake(scrollWidth, chooseSize*(count+decorateCountOffset));
     decorateScroll.center = CGPointMake(startPoint+scrollWidth/2, winSize.height/2);
-    decorateScroll.delegate = self;
+   // decorateScroll.delegate = self;
     decorateScroll.showsVerticalScrollIndicator = NO;
     decorateScroll.showsHorizontalScrollIndicator = NO;
     decorateScroll.pagingEnabled = NO;
     decorateScroll.userInteractionEnabled = YES;
     decorateScroll.scrollEnabled = YES;
     //add grag bg
-    UIImageView *bg = (UIImageView *)[[[CCDirector sharedDirector] view] viewWithTag:kSecondBgTag];
-    if (bg != nil){
-        [bg removeFromSuperview];
+    UIImageView *scrollBg = (UIImageView *)[[[CCDirector sharedDirector] view] viewWithTag:kSecondBgTag];
+    if (scrollBg != nil){
+        [scrollBg removeFromSuperview];
     }
-    bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"choosedecorategraybg%@.png",suffix]]];
-    [bg setBounds:CGRectMake(startPoint, winSize.height, scrollWidth, winSize.height)];
-    [bg setCenter:CGPointMake(startPoint+scrollWidth/2, winSize.height/2)];
-    [bg setAlpha:kAlphaValue];
-    [bg setTag:kSecondBgTag];
-    [[[CCDirector sharedDirector] view] addSubview:bg];
-    [bg release];
+    scrollBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"choosedecorategraybg%@.png",suffix]]];
+    [scrollBg setBounds:CGRectMake(startPoint, winSize.height, scrollWidth, winSize.height)];
+    [scrollBg setCenter:CGPointMake(startPoint+scrollWidth/2, winSize.height/2)];
+    [scrollBg setAlpha:kAlphaValue];
+    [scrollBg setTag:kSecondBgTag];
+    [[[CCDirector sharedDirector] view] addSubview:scrollBg];
+    [scrollBg release];
     //decorate choose nav
     for (int i=1; i<=count; i++){
         UIButton *button =

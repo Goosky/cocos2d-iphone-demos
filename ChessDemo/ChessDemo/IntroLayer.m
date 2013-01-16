@@ -63,7 +63,7 @@
 -(void) makeTransition:(ccTime)dt
 {
      CCScene *scene = [CCBReader sceneWithNodeGraphFromFile:@"chess.ccbi"];
-     //CCScene *scene = [CCBReader sceneWithNodeGraphFromFile:@"dress.ccbi"];
+   // CCScene *scene = [CCBReader sceneWithNodeGraphFromFile:@"dress.ccbi"];
 	[[CCDirector sharedDirector] replaceScene:scene];
 }
 @end

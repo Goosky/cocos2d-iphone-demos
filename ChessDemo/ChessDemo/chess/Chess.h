@@ -10,13 +10,17 @@
 #import "cocos2d.h"
 
 @interface Chess : CCLayer {
+    //vars from ccb
     CCSprite *card;
     CCSprite *card1;
     CCSprite *card2;
     CCSprite *card3;
     CCSprite *gray;
+    CCSprite *bg;
     CCLabelTTF *remainderTime;
     CCLabelTTF *scoreLabel;
+    //scene vars
+    CGFloat sceneScale;
     NSTimer *remainderTimer;
     int gameTime;
     NSMutableArray *cards;

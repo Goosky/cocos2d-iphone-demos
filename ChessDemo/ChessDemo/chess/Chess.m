@@ -12,6 +12,7 @@
 #import "SimpleAudioEngine.h"
 #import "const.h"
 #import "DbHepler.h"
+#import "AppDelegate.h"
 
 @implementation Chess
 
@@ -44,7 +45,7 @@
 }
 
 - (void)initConf{
-    self.isTouchEnabled = NO;
+   self.touchEnabled = NO;
     //game time
     gameTime = kGameTime;
     //set score
@@ -52,7 +53,10 @@
     errorTimes = 0;
     // Player *player = [self pullData];
     // score = [[player userScore] intValue];
-    score = 0;
+    // init scene scale
+    AppController *delegate = (AppController*)[[UIApplication sharedApplication] delegate];
+    sceneScale = delegate.sceneScale;
+    [bg setScale:sceneScale];
 }
 
 - (void)initCards{
@@ -95,7 +99,7 @@
 - (void)startGame{
     //CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
     remainderTimer = [NSTimer scheduledTimerWithTimeInterval:kChangeTime target:self selector:@selector(changeRemainderTimeLabel)userInfo:nil repeats:YES];
-    self.isTouchEnabled = YES;
+    self.touchEnabled = YES;
 }
 
 - (void)changeRemainderTimeLabel{
@@ -104,7 +108,7 @@
     if (gameTime == 0){
         [remainderTimer invalidate];
         [remainderTime setString:kGameOver];
-        self.isTouchEnabled = NO;
+        self.touchEnabled = NO;
     }else{
         [[SimpleAudioEngine sharedEngine] playEffect:kClockEffect];
         gameTime--;        
@@ -133,6 +137,8 @@
         int index  = arc4random()%tags.count;        
         sprite.tag = [[tags objectAtIndex:index] intValue];
         [tags removeObjectAtIndex:index];
+        //set all card scale
+        [sprite setScale:sceneScale];
     }
 }
 
@@ -145,7 +151,7 @@
     //package obj
     NSNumber *nIndex = [NSNumber numberWithInt:index];
     //one half rollover
-    id oneHalfRollover = [CCScaleTo actionWithDuration:kHalfRolloverTime scaleX:kMidScaleX scaleY:kScaleY];
+    id oneHalfRollover = [CCScaleTo actionWithDuration:kHalfRolloverTime scaleX:kMidScaleX*sceneScale scaleY:kScaleY*sceneScale];
     id firstSeqAction = nil;
     if (isHeader){
         [[SimpleAudioEngine sharedEngine] playEffect:kClickEffect];
@@ -166,16 +172,18 @@
     CCSprite *sprite = [cards objectAtIndex:index];
     //get old data
     int tag = sprite.tag;
-    CGPoint oldPos = [sprite position];
+    CGPoint oldPos = sprite.position;
+    CGFloat oldScaleY = sprite.scaleY;
     [sprite removeFromParentAndCleanup:YES];
     //new sprite by tag
     sprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"image%d.png",tag]];
     sprite.tag = tag;
     sprite.position = oldPos;
-    [sprite setScaleX:kMidScaleX];
+    [sprite setScaleX:kMidScaleX*sceneScale];
+    [sprite setScaleY:oldScaleY];
     [self addChild:sprite];
     //another half rollover
-    id anotherHalfRollover = [CCScaleTo actionWithDuration:kHalfRolloverTime scaleX:kScaleX scaleY:kScaleY];
+    id anotherHalfRollover = [CCScaleTo actionWithDuration:kHalfRolloverTime scaleX:kScaleX*sceneScale scaleY:kScaleY*sceneScale];
     [sprite runAction:anotherHalfRollover];
     //replace sprite
     [cards replaceObjectAtIndex:index withObject:sprite];
@@ -189,15 +197,17 @@
     //get old data
     int tag = sprite.tag;
     CGPoint oldPos = [sprite position];
+    CGFloat oldScaleY = sprite.scaleY;
     [sprite removeFromParentAndCleanup:YES];
     //new sprite by tag
     sprite = [CCSprite spriteWithFile:kHeaderImageName];    
     sprite.tag = tag;
     sprite.position = oldPos;
-    [sprite setScaleX:kMidScaleX];
+    [sprite setScaleX:kMidScaleX*sceneScale];
+    [sprite setScaleY:oldScaleY];
     [self addChild:sprite];
     //another half rollover
-    id anotherHalfRollover = [CCScaleTo actionWithDuration:kHalfRolloverTime scaleX:kScaleX scaleY:kScaleY];
+    id anotherHalfRollover = [CCScaleTo actionWithDuration:kHalfRolloverTime scaleX:kScaleX*sceneScale scaleY:kScaleY*sceneScale];
     [sprite runAction:anotherHalfRollover];
     //replace sprite
     [cards replaceObjectAtIndex:index withObject:sprite];
@@ -207,7 +217,7 @@
 
 - (void)updateScore{
    // CCLOG(@"%@::%@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
-    [scoreLabel setString:[NSString stringWithFormat:@"%@%d",kScoreRemainder,score]];
+    [scoreLabel setString:[NSString stringWithFormat:@"%@%d",kScoreRemainder,score]];   
 }
 
 - (CGRect)rectInPixels:(CCSprite*)sprite
@@ -261,7 +271,7 @@
 #pragma mark - check card is the same or not
 - (void)checkCard{
     if ([chosenCards count] == 2){
-        self.isTouchEnabled = NO;
+        self.touchEnabled = NO;
         int firstIndex = [[chosenCards objectAtIndex:0] intValue];
         int secondIndex = [[chosenCards objectAtIndex:1] intValue];
         CCSprite *firstChoose = [cards objectAtIndex:firstIndex];
@@ -320,7 +330,7 @@
     //check win or not
     [self checkWon];    
     
-    self.isTouchEnabled = YES;
+    self.touchEnabled = YES;
 }
 
 
@@ -334,7 +344,7 @@
         if (gameTime != 0){
             [remainderTimer invalidate];
             [gray setVisible:YES];
-            //[self reStart];
+            [self reStart];
         }
     }
 }
@@ -350,7 +360,7 @@
     [self rolloverByIndex:secondIndex rolloverTo:NO];
     //clear the choose list
     [chosenCards removeAllObjects];   
-    self.isTouchEnabled = YES;
+    self.touchEnabled = YES;
 }
 
 

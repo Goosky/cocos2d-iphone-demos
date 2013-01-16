@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface Dress : CCLayer <UIScrollViewDelegate> {
+@interface Dress : CCLayer {
+    //vars from ccb
+    CCSprite *bg;
+    //vars from scene
     int scrollWidth;
     int chooseSize;
     int chooseSizeOffset;
@@ -20,6 +23,8 @@
     int chooseIndex;
     UIScrollView *navScroll;
     UIScrollView *decorateScroll;
+    //scene vars
+    CGFloat sceneScale;
 }
 
 @end

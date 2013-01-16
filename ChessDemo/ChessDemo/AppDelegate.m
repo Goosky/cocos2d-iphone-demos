@@ -21,6 +21,7 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize sceneScale = sceneScale_;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -75,7 +76,7 @@
 	[sharedFileUtils setiPhoneRetinaDisplaySuffix:@"-hd"];		// Default on iPhone RetinaDisplay is "-hd"
 	[sharedFileUtils setiPadSuffix:@"-ipad"];					// Default on iPad is "ipad"
 	[sharedFileUtils setiPadRetinaDisplaySuffix:@"-ipadhd"];	// Default on iPad RetinaDisplay is "-ipadhd"
-
+   // [sharedFileUtils setiPhoneFourInchDisplaySuffix:@"-568h"];
 	// Assume that PVR images have premultiplied alpha
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 
@@ -83,7 +84,7 @@
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
     
    // CCScene *scene = [CCBReader sceneWithNodeGraphFromFile:@"chess.ccbi"];
-    
+    [self initConf];
     [self loadResouces];
 	[director_ pushScene: [IntroLayer scene]];
 
@@ -101,6 +102,27 @@
 	
 	return YES;
 }
+
+
+- (void)initConf{
+   // UIDevice *d = [UIDevice currentDevice];
+   // CCLOG(@"========================================device %@ isretina %d ispad %d",[d model],isRetina,isPad);
+    sceneScale_ = 1.0;
+    if (isPad) {
+        if (isRetina) {
+            sceneScale_ = 4.0/3.0;            
+        }else{
+            
+        }
+    }else{
+        if (isRetina) {
+            sceneScale_ = 2.0;
+        }else{
+            
+        }
+    }
+}
+
 
 -(void) loadResouces{
     
