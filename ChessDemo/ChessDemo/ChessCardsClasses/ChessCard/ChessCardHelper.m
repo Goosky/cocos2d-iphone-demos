@@ -9,13 +9,7 @@
 #import "ChessCardHelper.h"
 #import "SimpleAudioEngine.h"
 #import "AppDelegate.h"
-#import "ChessCardRoundA.h"
-#import "ChessCardRoundB.h"
-#import "ChessCardRoundC.h"
-#import "ChessCardRoundD.h"
-#import "ChessCardRoundE.h"
-#import "ChessCardRoundF.h"
-#import "ChessCardRoundG.h"
+#import "ChessCard.h"
 #import "DbHepler.h"
 
 @implementation ChessCardHelper
@@ -112,7 +106,7 @@ static ChessCardHelper *shareChessCardHelper = nil;
     CGFloat oldScaleY = sprite.scaleY;
     [sprite removeFromParentAndCleanup:YES];
     //new sprite by tag
-    sprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"a_card%d.png",tag]];
+    sprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"image%d.png",tag]];
     sprite.tag = tag;
     sprite.position = oldPos;
     [sprite setScaleX:kMidScaleX];
@@ -156,7 +150,7 @@ static ChessCardHelper *shareChessCardHelper = nil;
     [_chessCards removeAllObjects];
     //card list
     NSMutableArray *allCards = [NSMutableArray arrayWithCapacity:0];
-    for (int cardIndex = 0; cardIndex < kCardsCount; cardIndex++){
+    for (int cardIndex = 1; cardIndex <= kCardsCount; cardIndex++){
         [allCards addObject:[self index:cardIndex]];
     }
     //tag list
@@ -184,8 +178,8 @@ static ChessCardHelper *shareChessCardHelper = nil;
 
 - (CGRect)rectInPixels:(CCSprite*)sprite{
 	CGSize s = [[sprite texture] contentSizeInPixels];
-    //return CGRectMake(-s.width/2*(3.0f/4.0f), -s.height/2*(3.0f/4.0f), s.width*(3.0f/4.0f), s.height*(3.0f/4.0f));
-    return CGRectMake(-s.width/4.0f, -s.height/4.0f, s.width*0.5f, s.height*0.5f);
+    return CGRectMake(-s.width/2, -s.height/2, s.width, s.height);
+    //return CGRectMake(-s.width/4.0f, -s.height/4.0f, s.width*0.5f, s.height*0.5f);
 }
 
 
@@ -330,8 +324,6 @@ static ChessCardHelper *shareChessCardHelper = nil;
             //save score
             delegate.chessCardScore += score;//current game score
             [[DbHepler shareInstance] saveScore:score];//player total score
-            Player *py = [[DbHepler shareInstance] gamePlayer];
-            CCLOG(@"round totalscore %d user total score %d",delegate.chessCardScore,[[py userScore] intValue]);
         }
             break;
             
@@ -348,8 +340,6 @@ static ChessCardHelper *shareChessCardHelper = nil;
             //response to parent
             p = [self currentRound];
             [p gameTimeOut];
-            CCLOG(@"chesscard %@",_chessCards);
-            CCLOG(@"chosen card %@",_chosenCards);
         }
             break;
     }
@@ -359,34 +349,34 @@ static ChessCardHelper *shareChessCardHelper = nil;
     AppController *delegate = (AppController*) [[UIApplication sharedApplication] delegate];
     id p = nil;
     switch (delegate.chessCardRound) {
-        case kChessCardA:{
-            p = (ChessCardRoundA*)_parent;
+        case kChessCardA:{//Round A cocobuilder parent class
+            p = (ChessCard*)_parent;
             // [p playAgain];
         }
             break;
             
         case kChessCardB:{
-            p = (ChessCardRoundB*)_parent;
+            p = (ChessCard*)_parent;
         }
             break;
         case kChessCardC:{
-            p = (ChessCardRoundC*)_parent;
+            p = (ChessCard*)_parent;
         }
             break;
         case kChessCardD:{
-            p = (ChessCardRoundD*)_parent;
+            p = (ChessCard*)_parent;
         }
             break;
         case kChessCardE:{
-            p = (ChessCardRoundE*)_parent;
+            p = (ChessCard*)_parent;
         }
             break;
         case kChessCardF:{
-            p = (ChessCardRoundF*)_parent;
+            p = (ChessCard*)_parent;
         }
             break;
         case kChessCardG:{
-            p = (ChessCardRoundG*)_parent;
+            p = (ChessCard*)_parent;
         }
             break;
     }

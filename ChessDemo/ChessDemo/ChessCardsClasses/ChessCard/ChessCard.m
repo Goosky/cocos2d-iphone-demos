@@ -6,7 +6,7 @@
 //  Copyright 2013年 __MyCompanyName__. All rights reserved.
 //
 
-#import "ChessCardRoundD.h"
+#import "ChessCard.h"
 #import "CCControlButton.h"
 #import "const.h"
 #import "CCBReader.h"
@@ -14,7 +14,7 @@
 #import "CCBSwitchHelper.h"
 #import "SimpleAudioEngine.h"
 
-@implementation ChessCardRoundD
+@implementation ChessCard
 
 #pragma mark - init all variables
 
@@ -31,9 +31,9 @@
 
 - (void)initConf{
    self.touchEnabled = NO;
-    if (isIphone5) {
+   /* if (isIphone5) {
         [bg setScaleX:kIphone5ScaleX];
-    }
+    }*/
     //set parent
     [[ChessCardHelper shareInstance] setParent:self];
     [[ChessCardHelper shareInstance] setGameTime:kGameTime];
@@ -45,12 +45,6 @@
     [tempCards addObject:card1];
     [tempCards addObject:card2];
     [tempCards addObject:card3];
-    [tempCards addObject:card4];
-    [tempCards addObject:card5];
-    [tempCards addObject:card6];
-    [tempCards addObject:card7];
-    [tempCards addObject:card8];
-    [tempCards addObject:card9];
     [tempCards retain];
     [[ChessCardHelper shareInstance] randomTagWithCards:tempCards];
     [tempCards release];  

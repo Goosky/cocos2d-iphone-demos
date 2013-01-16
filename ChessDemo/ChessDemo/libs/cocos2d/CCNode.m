@@ -106,7 +106,9 @@ static NSUInteger globalOrderOfArrival = 1;
 
 		skewX_ = skewY_ = 0.0f;
 		rotationX_ = rotationY_ = 0.0f;
-		scaleX_ = scaleY_ = 1.0f;
+        //change by podevor
+		scaleX_ = scaleY_ = 4.0f/3.0f;
+       // scaleX_ = scaleY_ = 0.5f*4.0f/3.0f; //3gs
         position_ = CGPointZero;
         contentSize_ = CGSizeZero;
 		anchorPointInPoints_ = anchorPoint_ = CGPointZero;

@@ -26,7 +26,7 @@
 #define kChangeTime  1.0f
 
 //sprite images values
-#define kHeaderImageName  @"a_header.png"
+#define kHeaderImageName  @"image0.png"
 #define kParticaleName  @"bang.plist"
 #define kClickEffect  @"click.mp3"
 #define kClearEffect  @"clear.mp3"

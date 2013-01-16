@@ -37,32 +37,32 @@ static CCBSwitchHelper* helper = nil;
     
     NSString *ccbiFileName = nil;
     switch (delegate.chessCardRound) {
-        case kChessCardA:{
-            ccbiFileName = @"chesscarda.ccbi";
+        case kChessCardA:{//first round
+            ccbiFileName = @"chess.ccbi";
         }
             break;
         case kChessCardB:{
-            ccbiFileName = @"chesscardb.ccbi";
+            ccbiFileName = @"chess.ccbi";
         }
             break;
         case kChessCardC:{
-            ccbiFileName = @"chesscardc.ccbi";
+            ccbiFileName = @"chess.ccbi";
         }
             break;
         case kChessCardD:{
-            ccbiFileName = @"chesscardd.ccbi";
+            ccbiFileName = @"chess.ccbi";
         }
             break;
         case kChessCardE:{
-            ccbiFileName = @"chesscarde.ccbi";
+            ccbiFileName = @"chess.ccbi";
         }
             break;
         case kChessCardF:{
-            ccbiFileName = @"chesscardf.ccbi";
+            ccbiFileName = @"chess.ccbi";
         }
             break;
         case kChessCardG:{
-            ccbiFileName = @"chesscardg.ccbi";
+            ccbiFileName = @"chess.ccbi";
         }
             break;
     }

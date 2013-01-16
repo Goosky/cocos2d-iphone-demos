@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface ChessCardRoundA : CCLayer {
+@interface ChessCard : CCLayer {
     //vars from ccb
     CCSprite *card0;
     CCSprite *card1;
